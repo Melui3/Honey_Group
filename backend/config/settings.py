@@ -29,14 +29,11 @@ STORAGES = {
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-4f3(r4_54gx1qqs+q=!1@$r19!29f_is#rij*wx7yw0vu&bar4'
+SECRET_KEY = os.environ.get("SECRET_KEY", "dev-insecure")
+DEBUG = os.environ.get("DEBUG", "0") == "1"
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-
-ALLOWED_HOSTS = ["honey-group.onrender.com"]
-CSRF_TRUSTED_ORIGINS = ["https://honey-group.onrender.com"]
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "honey-group.onrender.com").split(",")
+CSRF_TRUSTED_ORIGINS = os.environ.get("CSRF_TRUSTED_ORIGINS", "https://honey-group.onrender.com").split(",")
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 
@@ -52,13 +49,14 @@ INSTALLED_APPS = [
     "rest_framework",
     "corsheaders",
     "content",
+    "whitenoise.runserver_nostatic",
 ]
 
 MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
-  "django.middleware.security.SecurityMiddleware",
+    "django.middleware.security.SecurityMiddleware",
   "whitenoise.middleware.WhiteNoiseMiddleware",
-    'django.middleware.security.SecurityMiddleware',
+  'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -133,6 +131,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
+# conseillé
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.AllowAny"],
