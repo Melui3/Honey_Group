@@ -1,0 +1,78 @@
+from django.core.management.base import BaseCommand
+from content.models import Excursion
+
+DATA = [
+    {
+        "id": "ampefy",
+        "slug": "ampefy",
+        "title": "Ampefy",
+        "durationLabel": "Journée",
+        "area": "Région Itasy (Ouest de Tanà)",
+        "highlights": ["Lac Itasy", "Chutes", "Nature"],
+        "cover": "/media/excursions/cover-ampefy.jpg",
+        "featured": True,
+        "gallery": [
+            "/media/excursions/gallery-ampefy-1.jpg",
+            "/media/excursions/gallery-ampefy-2.jpg",
+            "/media/excursions/gallery-ampefy-3.jpg",
+            "/media/excursions/gallery-ampefy-4.jpg",
+            "/media/excursions/gallery-ampefy-5.jpg",
+        ],
+    },
+    {
+        "id": "mandraka",
+        "slug": "mandraka",
+        "title": "Mandraka",
+        "durationLabel": "Journée",
+        "area": "Forêt de Mandraka (Est de Tanà)",
+        "highlights": ["Forêt humide", "Balade", "Air pur"],
+        "cover": "/media/excursions/cover-mandraka.jpg",
+        "featured": True,
+        "gallery": [
+            "/media/excursions/gallery-mandraka-1.jpg",
+            "/media/excursions/gallery-mandraka-2.jpg",
+            "/media/excursions/gallery-mandraka-3.jpg",
+        ],
+    },
+    {
+        "id": "mantasoa",
+        "slug": "mantasoa",
+        "title": "Mantasoa",
+        "durationLabel": "2 jours / 1 nuit",
+        "area": "Région Alaotra-Mangoro",
+        "highlights": ["Lac Mantasoa", "Week-end nature", "Détente"],
+        "cover": "/media/excursions/cover-mantasoa.jpg",
+        "featured": True,
+        "gallery": [
+            "/media/excursions/gallery-mantasoa-1.jpg",
+            "/media/excursions/gallery-mantasoa-2.jpg",
+            "/media/excursions/gallery-mantasoa-3.jpg",
+        ],
+    },
+    {
+        "id": "vohimana",
+        "slug": "vohimana",
+        "title": "Vohimana",
+        "durationLabel": "2j / 1n ou 3j / 2n",
+        "area": "Est – Forêt primaire",
+        "highlights": ["Biodiversité", "Immersion", "Écotourisme"],
+        "cover": "/media/excursions/cover-vohimana.jpg",
+        "featured": False,
+        "gallery": [
+            "/media/excursions/gallery-vohimana-1.jpg",
+            "/media/excursions/gallery-vohimana-2.jpg",
+            "/media/excursions/gallery-vohimana-3.jpg",
+        ],
+    },
+]
+
+class Command(BaseCommand):
+    help = "Seed excursions data"
+
+    def handle(self, *args, **kwargs):
+        for item in DATA:
+            Excursion.objects.update_or_create(
+                id=item["id"],
+                defaults=item
+            )
+        self.stdout.write(self.style.SUCCESS("Excursions seeded successfully"))

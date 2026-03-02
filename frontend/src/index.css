@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+/* ===========================
+   HONEY GROUP DESIGN TOKENS
+   =========================== */
+
+:root {
+  /* Primary Brand */
+  --honey-blue: #0054A6;
+  --honey-orange: #F37021;
+  --honey-yellow: #FFD200;
+  --honey-green: #00A651;
+
+  /* Neutral support */
+  --honey-text: #1e293b; /* slate-800 */
+  --honey-muted: #64748b; /* slate-500 */
+  --honey-bg: #f8fafc; /* slate-50 */
+}
+
+/* Base typography */
+body {
+  font-family: "Open Sans", sans-serif;
+  background-color: var(--honey-bg);
+  color: var(--honey-text);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Montserrat", sans-serif;
+}
