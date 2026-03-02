@@ -35,8 +35,8 @@ SECRET_KEY = 'django-insecure-4f3(r4_54gx1qqs+q=!1@$r19!29f_is#rij*wx7yw0vu&bar4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["ton-backend.onrender.com"]
-CSRF_TRUSTED_ORIGINS = ["https://ton-backend.onrender.com"]
+ALLOWED_HOSTS = ["honey-group.onrender.com"]
+CSRF_TRUSTED_ORIGINS = ["https://honey-group.onrender.com"]
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 
