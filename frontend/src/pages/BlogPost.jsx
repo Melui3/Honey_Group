@@ -3,7 +3,8 @@ import { useParams } from "react-router-dom";
 import Layout from "../components/Layout";
 import PageHero from "../components/PageHero";
 import { btn } from "../ui/buttons";
-import { apiList} from "../lib/api";
+import {BLOG_POSTS } from "../data";
+import { loadWithFallback } from "../lib/dataSource";
 
 /* -------------------------------------------- */
 /* Layout helpers */
@@ -124,34 +125,16 @@ function renderContent(content) {
 
 export default function BlogPost() {
   const { slug } = useParams();
-const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState(BLOG_POSTS);
 
-useEffect(() => {
-  apiList("/api/blog-posts/").then(setPosts);
-}, []);
+  useEffect(() => {
+    loadWithFallback("/api/blog-posts/", BLOG_POSTS).then(setPosts);
+  }, []);
 
-const post = useMemo(() => posts.find((p) => p.slug === slug) || null, [posts, slug]);
-
-const index = useMemo(() => {
-  if (!post) return -1;
-  return posts.findIndex((p) => p.slug === post.slug);
-}, [posts, post]);
-
-  const prevPost = useMemo(() => (index > 0 ? posts[index - 1] : null), [posts, index]);
-  const nextPost = useMemo(
-    () => (index >= 0 && index < posts.length - 1 ? posts[index + 1] : null),
-    [posts, index]
+  const post = useMemo(
+    () => (posts || []).find((p) => p.slug === slug) || null,
+    [posts, slug]
   );
-
-  const related = useMemo(() => {
-    if (!post) return [];
-    const sameCategory = posts
-      .filter((p) => p.slug !== post.slug)
-      .filter((p) => (post.category ? p.category === post.category : true));
-
-    const fallback = posts.filter((p) => p.slug !== post.slug);
-    return (sameCategory.length ? sameCategory : fallback).slice(0, 3);
-  }, [posts, post]);
 
   if (!post) {
     return (

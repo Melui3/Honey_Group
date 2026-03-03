@@ -1,7 +1,8 @@
 import React, { useMemo, useState, useEffect } from "react";
 import Layout from "../components/Layout";
 import PageHero from "../components/PageHero";
-import { apiList } from "../lib/api";
+import {BLOG_POSTS } from "../data";
+import { loadWithFallback } from "../lib/dataSource";
 import { btn } from "../ui/buttons";
 
 const Container = ({ children }) => (
@@ -34,16 +35,17 @@ const Pill = ({ children, tone = "green" }) => {
 
 export default function Blog() {
   const [query, setQuery] = useState("");
-  const [posts, setPosts] = useState([]);
-  const featured = posts[0];
+  const [posts, setPosts] = useState(BLOG_POSTS);
 
   useEffect(() => {
-    apiList("/api/blog-posts/").then(setPosts);
+    loadWithFallback("/api/blog-posts/", BLOG_POSTS).then(setPosts);
   }, []);
+
+  const featured = posts?.[0] || null;
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
-    return posts.filter((p) => {
+    return (posts || []).filter((p) => {
       const blob = `${p.title || ""} ${p.excerpt || ""} ${p.category || ""}`.toLowerCase();
       return !q || blob.includes(q);
     });

@@ -1,5 +1,6 @@
 import React, { useMemo, useState, useEffect } from "react";
-import { apiList } from "../lib/api";
+import { SIGNATURES } from "../data";
+import { loadWithFallback } from "../lib/dataSource";
 import Layout from "../components/Layout";
 import PageHero from "../components/PageHero";
 import Lightbox from "../components/Lightbox";
@@ -27,7 +28,7 @@ export default function Signatures() {
   const [lbImages, setLbImages] = useState([]);
 
   useEffect(() => {
-    apiList("/api/signatures/").then(setRemote);
+    loadWithFallback("/api/signatures/", SIGNATURES).then(setRemote);
   }, []);
 
   const openGallery = (s) => {

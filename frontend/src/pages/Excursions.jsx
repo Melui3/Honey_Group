@@ -3,7 +3,8 @@ import Layout from "../components/Layout";
 import PageHero from "../components/PageHero";
 import Lightbox from "../components/Lightbox";
 import { btn } from "../ui/buttons";
-import { apiList} from "../lib/api";
+import { EXCURSIONS } from "../data";
+import { loadWithFallback } from "../lib/dataSource";
 
 const Container = ({ children }) => (
   <div className="mx-auto w-full max-w-7xl px-5">{children}</div>
@@ -46,7 +47,7 @@ export default function Excursions() {
   const [remote, setRemote] = useState([]);
 
   useEffect(() => {
-    apiList("/api/excursions/").then(setRemote);
+    loadWithFallback("/api/excursions/", EXCURSIONS).then(setRemote);
   }, []);
 
   const all = useMemo(() => remote || [], [remote]);

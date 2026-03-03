@@ -3,7 +3,8 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { card, bar, media, layer } from "../ui/cards";
 import { btn } from "../ui/buttons";
-import { apiList, apiGet } from "../lib/api";
+import {CIRCUITS, DESTINATIONS, SIGNATURES, EXCURSIONS, BLOG_POSTS, VIDEO_CARDS, HERO_MEDIA } from "../data";
+import { loadWithFallback } from "../lib/dataSource";
 import {
   Youtube,
   Facebook,
@@ -99,70 +100,59 @@ const DecorativeDots = () => (
 /* -------------------------------------------- */
 
 export default function Home() {
-  const [destinations, setDestinations] = useState([]);
-const [circuits, setCircuits] = useState([]);
-const [excursions, setExcursions] = useState([]);
-const [signatures, setSignatures] = useState([]);
-const [blogPosts, setBlogPosts] = useState([]);
+  const [destinations, setDestinations] = useState(DESTINATIONS);
+  const [circuits, setCircuits] = useState(CIRCUITS);
+  const [excursions, setExcursions] = useState(EXCURSIONS);
+  const [signatures, setSignatures] = useState(SIGNATURES);
+  const [blogPosts, setBlogPosts] = useState(BLOG_POSTS);
 
-const [heroMedia, setHeroMedia] = useState({ poster: "/media/hero/hero.jpg" });
-const [videoCards, setVideoCards] = useState([]);
+  const [heroMedia, setHeroMedia] = useState(HERO_MEDIA || { mode: "poster", poster: "/media/hero/hero.jpg" });
+  const [videoCards, setVideoCards] = useState(VIDEO_CARDS);
 
-useEffect(() => {
-  Promise.all([
-    apiList("/api/destinations/"),
-    apiList("/api/circuits/"),
-    apiList("/api/excursions/"),
-    apiList("/api/signatures/"),
-    apiList("/api/blog-posts/"),
-    apiGet("/api/videos/"),
-  ])
-    .then(([d, c, e, s, b, v]) => {
-      setDestinations(d || []);
-      setCircuits(c || []);
-      setExcursions(e || []);
-      setSignatures(s || []);
-      setBlogPosts(b || []);
+  useEffect(() => {
+    // Si l’API existe, elle remplace les seeds. Sinon seeds restent.
+    loadWithFallback("/api/destinations/", DESTINATIONS).then(setDestinations);
+    loadWithFallback("/api/circuits/", CIRCUITS).then(setCircuits);
+    loadWithFallback("/api/excursions/", EXCURSIONS).then(setExcursions);
+    loadWithFallback("/api/signatures/", SIGNATURES).then(setSignatures);
+    loadWithFallback("/api/blog-posts/", BLOG_POSTS).then(setBlogPosts);
 
-      setHeroMedia(v?.hero || { poster: "/media/hero/hero.jpg" });
-      setVideoCards(v?.cards || []);
-    })
-    .catch(() => {
-      // si l’API tombe, la home doit pas crash
-    });
-}, []);
+    // optionnel selon ton backend
+    // loadWithFallback("/api/hero-media/", HERO_MEDIA).then(setHeroMedia);
+    // loadWithFallback("/api/video-cards/", VIDEO_CARDS).then(setVideoCards);
+  }, []);
 
-const featuredDestinations = useMemo(
-  () => (destinations || []).filter((d) => d.featured).slice(0, 4),
-  [destinations]
-);
+  const featuredDestinations = useMemo(
+    () => (destinations || []).filter((d) => d.featured).slice(0, 4),
+    [destinations]
+  );
 
-const featuredCircuits = useMemo(
-  () => (circuits || []).filter((c) => c.featured).slice(0, 4),
-  [circuits]
-);
+  const featuredCircuits = useMemo(
+    () => (circuits || []).filter((c) => c.featured).slice(0, 4),
+    [circuits]
+  );
 
-const featuredExcursions = useMemo(
-  () => (excursions || []).filter((e) => e.featured).slice(0, 4),
-  [excursions]
-);
+  const featuredExcursions = useMemo(
+    () => (excursions || []).filter((e) => e.featured).slice(0, 4),
+    [excursions]
+  );
 
-const featuredSignatures = useMemo(
-  () => (signatures || []).filter((s) => Boolean(s.featured)).slice(0, 4),
-  [signatures]
-);
+  const featuredSignatures = useMemo(
+    () => (signatures || []).filter((s) => Boolean(s.featured)).slice(0, 4),
+    [signatures]
+  );
 
-const picked = featuredSignatures;
+  const picked = featuredSignatures;
 
-const featuredVideo = useMemo(
-  () => (videoCards || []).find((v) => v.featured) || (videoCards || [])[0],
-  [videoCards]
-);
+  const featuredVideo = useMemo(
+    () => (videoCards || []).find((v) => v.featured) || (videoCards || [])[0],
+    [videoCards]
+  );
 
-const otherVideos = useMemo(
-  () => (videoCards || []).filter((v) => v.id !== featuredVideo?.id).slice(0, 2),
-  [videoCards, featuredVideo]
-);
+  const otherVideos = useMemo(
+    () => (videoCards || []).filter((v) => v.id !== featuredVideo?.id).slice(0, 2),
+    [videoCards, featuredVideo]
+  );
 
 const heroPoster = heroMedia?.poster || "/media/hero/hero.jpg";
 const aboutImg = "/media/about/about-team.png";

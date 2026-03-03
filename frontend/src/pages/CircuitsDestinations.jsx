@@ -3,8 +3,8 @@ import PageHero from "../components/PageHero";
 import Layout from "../components/Layout";
 import { card, bar, media } from "../ui/cards";
 import { btn } from "../ui/buttons";
-import { apiList } from "../lib/api";
-
+import { CIRCUITS, DESTINATIONS, SIGNATURES, EXCURSIONS } from "../data";
+import { loadWithFallback } from "../lib/dataSource";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
 /* -------------------------------------------- */
@@ -201,53 +201,32 @@ export default function CircuitsDestinations() {
   const [query, setQuery] = useState("");
   const [zone, setZone] = useState("Toutes");
 
+  const [destinations, setDestinations] = useState(DESTINATIONS);
+  const [circuits, setCircuits] = useState(CIRCUITS);
+  const [excursions, setExcursions] = useState(EXCURSIONS);
+  const [signatures, setSignatures] = useState(SIGNATURES);
+
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const wanted = params.get("tab");
-    if (
-      wanted === "destinations" ||
-      wanted === "circuits" ||
-      wanted === "signatures" ||
-      wanted === "excursions"
-    ) {
-      setTab(wanted);
-    }
+    loadWithFallback("/api/destinations/", DESTINATIONS).then(setDestinations);
+    loadWithFallback("/api/circuits/", CIRCUITS).then(setCircuits);
+    loadWithFallback("/api/excursions/", EXCURSIONS).then(setExcursions);
+    loadWithFallback("/api/signatures/", SIGNATURES).then(setSignatures);
   }, []);
 
-const [allDestinations, setAllDestinations] = useState([]);
-const [allCircuits, setAllCircuits] = useState([]);
-const [allSignatures, setAllSignatures] = useState([]);
-const [allExcursions, setAllExcursions] = useState([]);
-
-useEffect(() => {
-  // en parallèle, rapide
-  Promise.all([
-    apiList("/api/destinations/"),
-    apiList("/api/circuits/"),
-    apiList("/api/signatures/"),
-    apiList("/api/excursions/"),
-  ]).then(([dests, circuits, sigs, excs]) => {
-    setAllDestinations(dests);
-    setAllCircuits(circuits);
-    setAllSignatures(sigs);
-    setAllExcursions(excs);
-  });
-}, []);
-
   const zones = useMemo(() => {
-    const set = new Set(allDestinations.map((d) => d.zone).filter(Boolean));
+    const set = new Set((destinations || []).map((d) => d.zone).filter(Boolean));
     return ["Toutes", ...Array.from(set)];
-  }, [allDestinations]);
+  }, [destinations]);
 
   const filteredDestinations = useMemo(() => {
     const q = query.trim().toLowerCase();
-    return allDestinations.filter((d) => {
+    return (destinations || []).filter((d) => {
       const okZone = zone === "Toutes" ? true : d.zone === zone;
       const blob = `${d.title || ""} ${d.teaser || ""} ${d.zone || ""}`.toLowerCase();
       const okQ = !q || blob.includes(q);
       return okZone && okQ;
     });
-  }, [allDestinations, zone, query]);
+  }, [destinations, zone, query]);
 
   const openGallery = (item) => {
     const images = (item.gallery && item.gallery.length ? item.gallery : [item.cover]).filter(Boolean);
@@ -414,7 +393,7 @@ useEffect(() => {
             </div>
 
             <div className="mt-10 grid gap-6 md:grid-cols-2">
-              {allCircuits.map((c, idx) => (
+              {circuits.map((c, idx) => (
                 <div key={c.id} className={card.base}>
                   <div className={bar.top(idx % 2 === 0 ? "green" : "orange")} />
 
@@ -494,7 +473,7 @@ useEffect(() => {
       </div>
 
       <div className="mt-10 grid gap-6 lg:grid-cols-2">
-        {allSignatures.map((s, idx) => {
+        {signatures.map((s, idx) => {
           const Icon = s.icon;
           const tone = idx % 2 === 0 ? "yellow" : "green";
 
@@ -594,7 +573,7 @@ useEffect(() => {
       </div>
 
       <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {allExcursions.map((e, idx) => (
+        {excursions.map((e, idx) => (
           <div key={e.id} className={[card.base, "group"].join(" ")}>
             <div className={bar.top(idx % 2 === 0 ? "green" : "orange")} />
 
