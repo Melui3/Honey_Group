@@ -1,6 +1,7 @@
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
-
+import MentionsLegales from "./pages/MentionsLegales";
+import Confidentialite from "./pages/Confidentialite";
 import Home from "./pages/Home.jsx";
 import CircuitsDestinations from "./pages/CircuitsDestinations.jsx";
 import Excursions from "./pages/Excursions.jsx";
@@ -8,7 +9,7 @@ import Signatures from "./pages/Signatures.jsx";
 import Blog from "./pages/Blog.jsx";
 import BlogPost from "./pages/BlogPost.jsx";
 import Contact from "./pages/Contact.jsx";
-import About from "./pages/About.jsx"; // si tu l’as déjà, sinon fais un placeholder
+import About from "./pages/About.jsx"; 
 
 function NotFound() {
   return (
@@ -46,6 +47,9 @@ export default function App() {
 
       <Route path="/home" element={<Navigate to="/" replace />} />
       <Route path="*" element={<NotFound />} />
+
+      <Route path="/mentions-legales" element={<MentionsLegales />} />
+<Route path="/confidentialite" element={<Confidentialite />} />
     </Routes>
   );
 }

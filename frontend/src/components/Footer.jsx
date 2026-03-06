@@ -106,12 +106,14 @@ export default function Footer() {
 
   
 
-  // Remplace ces href quand tu auras les vrais liens
+  
   const socials = useMemo(
     () => [
       
       { label: "YouTube", href: "https://www.youtube.com/@SamRob-l1z", Icon: IconYouTube },
       { label: "Facebook", href: "https://www.google.com/search?q=https://web.facebook.com/profile.php%3Fid%3D61554781021481", Icon: IconFacebook },
+      { label: "TikTok", href: "https://www.tiktok.com/@honeygr7?lang=fr", Icon: IconTikTok },
+      { label: "Instagram", href: "https://www.instagram.com/honey_group_mada/", Icon: IconInstagram },
     
     ],
     []
@@ -224,14 +226,21 @@ export default function Footer() {
 
         <div className="mt-10 flex flex-col gap-3 border-t border-[var(--honey-border)] pt-6 text-xs font-semibold text-slate-500 md:flex-row md:items-center md:justify-between">
           <div>© {new Date().getFullYear()} Honey Group — Tous droits réservés.</div>
-          <div className="flex gap-4">
-            <a href="/mentions-legales" className="hover:text-slate-800">
-              Mentions légales
-            </a>
-            <a href="/confidentialite" className="hover:text-slate-800">
-              Confidentialité
-            </a>
-          </div>
+        <div className="flex gap-4">
+          <NavLink
+            to="/mentions-legales"
+            className="hover:text-slate-800"
+          >
+            Mentions légales
+          </NavLink>
+
+          <NavLink
+            to="/confidentialite"
+            className="hover:text-slate-800"
+          >
+            Confidentialité
+          </NavLink>
+        </div>
         </div>
       </div>
     </footer>

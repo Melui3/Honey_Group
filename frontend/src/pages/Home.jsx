@@ -8,6 +8,8 @@ import { loadWithFallback } from "../lib/dataSource";
 import {
   Youtube,
   Facebook,
+  IconTikTok,
+  IconInstagram,
   Play,
   Leaf,
   Users,
@@ -164,7 +166,6 @@ const aboutImg = "/media/about/about-team.png";
       <Header />
 
       {/* ================= HERO ================= */}
-      {/* HERO not changed (structure kept) */}
       <section className="relative h-[620px] md:h-[720px] flex items-center overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
@@ -220,6 +221,8 @@ const aboutImg = "/media/about/about-team.png";
               {[
                 { label: "YouTube", href: "https://www.youtube.com/@SamRob-l1z", Icon: Youtube },
                 { label: "Facebook", href: "https://www.google.com/search?q=https://web.facebook.com/profile.php%3Fid%3D61554781021481", Icon: Facebook },
+                  { label: "TikTok", href: "https://www.tiktok.com/@honeygr7?lang=fr", Icon: IconTikTok },
+                  { label: "Instagram", href: "https://www.instagram.com/honey_group_mada/", Icon: IconInstagram },
               ].map(({ label, href, Icon }) => (
                 <a
                   key={label}
