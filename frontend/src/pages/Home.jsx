@@ -6,11 +6,7 @@ import { btn } from "../ui/buttons";
 import {CIRCUITS, DESTINATIONS, SIGNATURES, EXCURSIONS, BLOG_POSTS, VIDEO_CARDS, HERO_MEDIA } from "../data";
 import { loadWithFallback } from "../lib/dataSource";
 import {
-  Youtube,
-  Facebook,
-  TikTok,
-  Instagram,
-  Play,
+ Play,
   Leaf,
   Users,
   Shield,
@@ -97,6 +93,49 @@ const DecorativeDots = () => (
   <div className="pointer-events-none absolute inset-0 opacity-[0.06] [background-image:radial-gradient(circle_at_1px_1px,black_1px,transparent_0)] [background-size:18px_18px]" />
 );
 
+const IconTikTok = ({ className = "h-5 w-5" }) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
+    <path d="M16 3c.6 2.8 2.3 4.8 5 5.1v3.2c-1.9.1-3.6-.5-5-1.6v6.8c0 3.6-2.6 6.4-6.5 6.5A6.5 6.5 0 0 1 3 15.5C3 11.9 5.6 9 9.5 9c.6 0 1.2.1 1.7.2v3.6c-.5-.2-1.1-.3-1.7-.3-1.9 0-3.2 1.3-3.2 3.1 0 1.9 1.3 3.2 3.1 3.2 1.7 0 3.1-1.2 3.1-3.6V3h3.5Z" />
+  </svg>
+);
+
+const IconInstagram = ({ className = "h-5 w-5" }) => (
+  <svg viewBox="0 0 24 24" fill="none" className={className}>
+    <path
+      d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Z"
+      stroke="currentColor"
+      strokeWidth="2"
+    />
+    <path
+      d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"
+      stroke="currentColor"
+      strokeWidth="2"
+    />
+    <path
+      d="M17.5 6.5h.01"
+      stroke="currentColor"
+      strokeWidth="3"
+      strokeLinecap="round"
+    />
+  </svg>
+);
+
+const IconYouTube = ({ className = "h-5 w-5" }) => (
+  <svg viewBox="0 0 24 24" fill="none" className={className}>
+    <path
+      d="M21 12s0-3.4-.4-5a3 3 0 0 0-2.1-2.1C16.9 4.5 12 4.5 12 4.5s-4.9 0-6.5.4A3 3 0 0 0 3.4 7C3 8.6 3 12 3 12s0 3.4.4 5a3 3 0 0 0 2.1 2.1c1.6.4 6.5.4 6.5.4s4.9 0 6.5-.4a3 3 0 0 0 2.1-2.1c.4-1.6.4-5 .4-5Z"
+      stroke="currentColor"
+      strokeWidth="2"
+    />
+    <path d="M10 9.5v5l5-2.5-5-2.5Z" fill="currentColor" />
+  </svg>
+);
+
+const IconFacebook = ({ className = "h-5 w-5" }) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
+    <path d="M14 8h2V5h-2c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h2.1l.9-3H13V9c0-.6.4-1 1-1Z" />
+  </svg>
+);
 /* -------------------------------------------- */
 /* Home */
 /* -------------------------------------------- */
@@ -219,10 +258,10 @@ const aboutImg = "/media/about/about-team.png";
             {/* Social pills */}
             <div className="mt-10 flex flex-wrap justify-center gap-3">
               {[
-                { label: "YouTube", href: "https://www.youtube.com/@SamRob-l1z", Icon: Youtube },
-                { label: "Facebook", href: "https://www.google.com/search?q=https://web.facebook.com/profile.php%3Fid%3D61554781021481", Icon: Facebook },
-                  { label: "TikTok", href: "https://www.tiktok.com/@honeygr7?lang=fr", Icon: TikTok },
-                  { label: "Instagram", href: "https://www.instagram.com/honey_group_mada/", Icon: Instagram },
+                { label: "YouTube", href: "https://www.youtube.com/@SamRob-l1z", Icon: IconYouTube },
+                { label: "Facebook", href: "https://www.google.com/search?q=https://web.facebook.com/profile.php%3Fid%3D61554781021481", Icon: IconFacebook },
+                  { label: "TikTok", href: "https://www.tiktok.com/@honeygr7?lang=fr", Icon: IconTikTok },
+                  { label: "Instagram", href: "https://www.instagram.com/honey_group_mada/", Icon: IconInstagram },
               ].map(({ label, href, Icon }) => (
                 <a
                   key={label}
