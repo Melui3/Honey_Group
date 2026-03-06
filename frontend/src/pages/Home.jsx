@@ -8,8 +8,8 @@ import { loadWithFallback } from "../lib/dataSource";
 import {
   Youtube,
   Facebook,
-  IconTikTok,
-  IconInstagram,
+  TikTok,
+  Instagram,
   Play,
   Leaf,
   Users,
@@ -221,8 +221,8 @@ const aboutImg = "/media/about/about-team.png";
               {[
                 { label: "YouTube", href: "https://www.youtube.com/@SamRob-l1z", Icon: Youtube },
                 { label: "Facebook", href: "https://www.google.com/search?q=https://web.facebook.com/profile.php%3Fid%3D61554781021481", Icon: Facebook },
-                  { label: "TikTok", href: "https://www.tiktok.com/@honeygr7?lang=fr", Icon: IconTikTok },
-                  { label: "Instagram", href: "https://www.instagram.com/honey_group_mada/", Icon: IconInstagram },
+                  { label: "TikTok", href: "https://www.tiktok.com/@honeygr7?lang=fr", Icon: TikTok },
+                  { label: "Instagram", href: "https://www.instagram.com/honey_group_mada/", Icon: Instagram },
               ].map(({ label, href, Icon }) => (
                 <a
                   key={label}
