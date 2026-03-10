@@ -48,7 +48,7 @@ export const BLOG_POSTS = [
                 "text": "Ramène un morceau de Madagascar dans tes valises — et fais-le de la bonne manière : en respectant le travail et ceux qui le portent.",
             },
         ],
-        "published": True,
+        "published": true,
     },
     {
         "id": "culture-traditions",
@@ -94,7 +94,7 @@ export const BLOG_POSTS = [
                 "text": "Avec Honey Group, on t’emmène là où l’émotion est réelle — loin des sentiers battus, sans te vendre du fake.",
             },
         ],
-        "published": True,
+        "published": true,
     },
     {
         "id": "arendrina-madagascar",
@@ -140,7 +140,7 @@ export const BLOG_POSTS = [
                 "text": "Honey Group te fait vivre l’Arendrina au bon endroit, au bon moment — sans stress, en sécurité, et avec du sens.",
             },
         ],
-        "published": True,
+        "published": true,
     },
     {
         "id": "baobabs-majeste",
@@ -185,6 +185,6 @@ export const BLOG_POSTS = [
                 "text": "Prépare ton appareil : les baobabs, c’est le genre de truc qui reste gravé, même quand tu rentres.",
             },
         ],
-        "published": True,
+        "published": true,
     },
 ]
