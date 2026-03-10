@@ -18,7 +18,7 @@ DATA = [
         "gallery": [
             "/media/signatures/gallery-tana-by-night-1.jpg",
             "/media/signatures/gallery-tana-by-night-2.jpg",
-            "/media/signatures/gallery-tana-by-night-3.jpg",
+            "/media/signatures/gallery-tana-by-night-3.webp",
         ],
         "featured": True,
     },
@@ -41,25 +41,6 @@ DATA = [
             "/media/signatures/gallery-moto-velo-3.jpg",
         ],
         "featured": True,
-    },
-    {
-        "id": "circuits-sur-mesure",
-        "slug": "circuits-sur-mesure",
-        "title": "Circuit Sur Mesure",
-        "duration": "Variable",
-        "description": "Votre voyage, votre rythme. Nous construisons un itinéraire clair et optimisé selon vos envies, votre budget et votre niveau de confort.",
-        "bullets": [
-            "Itinéraire 100% personnalisé",
-            "Optimisation des trajets & étapes",
-            "Options confort / aventure",
-            "Accompagnement expert local",
-        ],
-        "cover": "/media/signatures/cover-sur-mesure.jpg",
-        "gallery": [
-            "/media/signatures/gallery-sur-mesure-1.jpg",
-            "/media/signatures/gallery-sur-mesure-2.jpg",
-        ],
-        "featured": False,
     },
 ]
 

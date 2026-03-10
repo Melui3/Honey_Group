@@ -56,7 +56,7 @@ DATA = [
         "durationLabel": "2j / 1n ou 3j / 2n",
         "area": "Est – Forêt primaire",
         "highlights": ["Biodiversité", "Immersion", "Écotourisme"],
-        "cover": "/media/excursions/cover-vohimana.jpg",
+        "cover": "/media/excursions/cover-vohimana.webp",
         "featured": False,
         "gallery": [
             "/media/excursions/gallery-vohimana-1.jpg",

@@ -14,7 +14,7 @@ DATA = [
         "notes": "",
         "gallery": [
             "/media/circuits/circuit-sud-1.jpg",
-            "/media/circuits/circuit-sud-2.jfif",
+            "/media/circuits/circuit-sud-2.jpg",
             "/media/circuits/circuit-sud-3.jpg",
         ],
     },
@@ -41,12 +41,12 @@ DATA = [
         "durationLabel": "8 à 12 jours",
         "routeLabel": "Nosy Be (détails) + Diego (aperçu)",
         "highlights": ["Nosy Be", "Plages & nautique", "Séjours détente", "Diego (aperçu)"],
-        "cover": "/media/circuits/cover-circuit-nord.jpg",
+        "cover": "/media/circuits/cover-circuit-nord.jpeg",
         "featured": True,
         "notes": "Fiche Diego manquante — on affiche un aperçu destination uniquement.",
         "gallery": [
             "/media/circuits/circuit-nord-1.jpg",
-            "/media/circuits/circuit-nord-2.jfif",
+            "/media/circuits/circuit-nord-2.jpg",
             "/media/circuits/circuit-nord-3.jpg",
         ],
     },
@@ -79,7 +79,7 @@ DATA = [
         "gallery": [
             "/media/circuits/circuit-majunga-1.jpg",
             "/media/circuits/circuit-majunga-2.jpg",
-            "/media/circuits/circuit-majunga-3.jpg",
+            "/media/circuits/circuit-majunga-3.webp",
         ],
     },
     {
@@ -93,7 +93,7 @@ DATA = [
         "featured": False,
         "notes": "À compléter avec la fiche PDF quand elle est prête.",
         "gallery": [
-            "/media/circuits/circuit-manambato-1.jpg",
+            "/media/circuits/circuit-manambato-1.webp",
             "/media/circuits/circuit-manambato-2.jpg",
             "/media/circuits/circuit-manambato-3.jpg",
         ],

@@ -14,7 +14,7 @@ DATA = [
         "images": [
             "/media/blog/artisanat-malagasy-1.jpg",
             "/media/blog/artisanat-malagasy-2.jpg",
-            "/media/blog/artisanat-malagasy-3.jpg",
+            "/media/blog/artisanat-malagasy-3.jpeg",
         ],
         "excerpt": "Textile, vannerie, métal… Derrière chaque objet, il y a une histoire, un geste, une transmission. On te montre le vrai Madagascar, celui qui se fabrique à la main.",
         "content": [
@@ -111,7 +111,7 @@ DATA = [
         "images": [
             "/media/blog/arendrina-1.jpg",
             "/media/blog/arendrina-2.jpg",
-            "/media/blog/arendrina-3.jpg",
+            "/media/blog/arendrina-3.jfif",
         ],
         "excerpt": "En juin, la Grande Île change d’énergie. Lanternes, rues vivantes, enfants en défilé… L’Arendrina, c’est une tradition lumineuse à vivre une fois.",
         "content": [

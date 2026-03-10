@@ -12,10 +12,10 @@ DATA = [
         "cover": "/media/destinations/cover-nosy-be.jpg",
         "featured": True,
         "gallery": [
-            "/media/destinations/gallery-nosy-be-1.jfif",
-            "/media/destinations/gallery-nosy-be-2.jfif",
+            "/media/destinations/gallery-nosy-be-1.jpg",
+            "/media/destinations/gallery-nosy-be-2.jpg",
             "/media/destinations/gallery-nosy-be-3.jpg",
-            "/media/destinations/gallery-nosy-be-4.jfif",
+            "/media/destinations/gallery-nosy-be-4.jpg",
         ],
     },
     {
@@ -100,7 +100,7 @@ DATA = [
         "zone": "Côte Est",
         "teaser": "Porte d’entrée de la côte Est, Toamasina mêle littoral vibrant, nature tropicale et accès vers l’arrière-pays.",
         "tags": ["Littoral", "Nature", "Côte Est"],
-        "cover": "/media/destinations/cover-tamatave.jpg",
+        "cover": "/media/destinations/cover-tamatave.webp",
         "featured": False,
         "gallery": [
             "/media/destinations/gallery-tamatave-1.jpg",
@@ -134,7 +134,7 @@ DATA = [
         "featured": False,
         "gallery": [
             "/media/destinations/gallery-vohimana-1.jpg",
-            "/media/destinations/gallery-vohimana-2.jpg",
+            "/media/destinations/gallery-vohimana-2.jfif",
             "/media/destinations/gallery-vohimana-3.jpg",
         ],
     },
@@ -175,11 +175,11 @@ DATA = [
         "zone": "Centre",
         "teaser": "Capitale perchée entre collines et histoire, Antananarivo est le point de départ culturel de tout voyage.",
         "tags": ["Culture", "Histoire", "Capitale"],
-        "cover": "/media/destinations/cover-antananarivo.jpg",
+        "cover": "/media/destinations/cover-antananarivo.jpeg",
         "featured": False,
         "gallery": [
             "/media/destinations/gallery-antananarivo-1.jpg",
-            "/media/destinations/gallery-antananarivo-2.jpg",
+            "/media/destinations/gallery-antananarivo-2.jpeg",
             "/media/destinations/gallery-antananarivo-3.jpg",
         ],
     },
