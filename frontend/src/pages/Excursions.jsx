@@ -46,11 +46,8 @@ export default function Excursions() {
   const [lbImages, setLbImages] = useState([]);
   const [remote, setRemote] = useState([]);
 
-  useEffect(() => {
-    loadWithFallback("/api/excursions/", EXCURSIONS).then(setRemote);
-  }, []);
 
-  const all = useMemo(() => remote || [], [remote]);
+const all = useMemo(() => EXCURSIONS, []);
   const areas = useMemo(() => {
     const set = new Set(all.map((e) => e.area).filter(Boolean));
     return ["Toutes", ...Array.from(set)];

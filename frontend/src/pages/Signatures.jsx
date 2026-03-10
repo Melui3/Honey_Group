@@ -21,15 +21,13 @@ const Img = ({ src, alt, className }) => (
 );
 
 export default function Signatures() {
- const [remote, setRemote] = useState([]);
-
+ 
+  const all = useMemo(() => SIGNATURES, []);
   const [lbOpen, setLbOpen] = useState(false);
   const [lbTitle, setLbTitle] = useState("");
   const [lbImages, setLbImages] = useState([]);
 
-  useEffect(() => {
-    loadWithFallback("/api/signatures/", SIGNATURES).then(setRemote);
-  }, []);
+  
 
   const openGallery = (s) => {
     const images = (s.gallery && s.gallery.length ? s.gallery : [s.cover]).filter(Boolean);
@@ -44,7 +42,7 @@ export default function Signatures() {
 
       <PageHero
         title="Expériences Signature"
-        subtitle="Tanà by night & Music travel : des expériences fortes, premium, et personnalisables."
+        subtitle="Des expériences fortes, premium et personnalisables pour découvrir Madagascar autrement."
         primaryCta={{ href: "/contact", label: "Demander un devis" }}
         secondaryCta={{ href: "/circuits-destinations?tab=signatures", label: "Voir dans l’onglet" }}
       />
@@ -52,7 +50,7 @@ export default function Signatures() {
       <section className="py-14">
         <Container>
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
-            {remote.map((s) => {
+            {all.map((s) => {
   const Icon = s.icon;
 
   return (
