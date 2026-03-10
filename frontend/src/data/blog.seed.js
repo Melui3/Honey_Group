@@ -1,5 +1,5 @@
 export const BLOG_POSTS = [
-{
+    {
         "id": "artisanat-malagasy",
         "slug": "artisanat-malagasy",
         "title": "L’Artisanat Malagasy : quand la main crée l’exception",
@@ -11,7 +11,7 @@ export const BLOG_POSTS = [
         "images": [
             "/media/blog/artisanat-malagasy-1.jpg",
             "/media/blog/artisanat-malagasy-2.jpg",
-            "/media/blog/artisanat-malagasy-3.jpg",
+            "/media/blog/artisanat-malagasy-3.jpeg",
         ],
         "excerpt": "Textile, vannerie, métal… Derrière chaque objet, il y a une histoire, un geste, une transmission. On te montre le vrai Madagascar, celui qui se fabrique à la main.",
         "content": [
@@ -48,7 +48,7 @@ export const BLOG_POSTS = [
                 "text": "Ramène un morceau de Madagascar dans tes valises — et fais-le de la bonne manière : en respectant le travail et ceux qui le portent.",
             },
         ],
-        "published": true,
+        "published": True,
     },
     {
         "id": "culture-traditions",
@@ -94,7 +94,7 @@ export const BLOG_POSTS = [
                 "text": "Avec Honey Group, on t’emmène là où l’émotion est réelle — loin des sentiers battus, sans te vendre du fake.",
             },
         ],
-        "published": true,
+        "published": True,
     },
     {
         "id": "arendrina-madagascar",
@@ -108,7 +108,7 @@ export const BLOG_POSTS = [
         "images": [
             "/media/blog/arendrina-1.jpg",
             "/media/blog/arendrina-2.jpg",
-            "/media/blog/arendrina-3.jpg",
+            "/media/blog/arendrina-3.jfif",
         ],
         "excerpt": "En juin, la Grande Île change d’énergie. Lanternes, rues vivantes, enfants en défilé… L’Arendrina, c’est une tradition lumineuse à vivre une fois.",
         "content": [
@@ -140,7 +140,7 @@ export const BLOG_POSTS = [
                 "text": "Honey Group te fait vivre l’Arendrina au bon endroit, au bon moment — sans stress, en sécurité, et avec du sens.",
             },
         ],
-        "published": true,
+        "published": True,
     },
     {
         "id": "baobabs-majeste",
@@ -185,6 +185,6 @@ export const BLOG_POSTS = [
                 "text": "Prépare ton appareil : les baobabs, c’est le genre de truc qui reste gravé, même quand tu rentres.",
             },
         ],
-        "published": true,
+        "published": True,
     },
 ]

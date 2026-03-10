@@ -39,23 +39,5 @@ export const SIGNATURES = [
         ],
         "featured": true,
     },
-    {
-        "id": "circuits-sur-mesure",
-        "slug": "circuits-sur-mesure",
-        "title": "Circuit Sur Mesure",
-        "duration": "Variable",
-        "description": "Votre voyage, votre rythme. Nous construisons un itinéraire clair et optimisé selon vos envies, votre budget et votre niveau de confort.",
-        "bullets": [
-            "Itinéraire 100% personnalisé",
-            "Optimisation des trajets & étapes",
-            "Options confort / aventure",
-            "Accompagnement expert local",
-        ],
-        "cover": "/media/signatures/cover-sur-mesure.jpg",
-        "gallery": [
-            "/media/signatures/gallery-sur-mesure-1.jpg",
-            "/media/signatures/gallery-sur-mesure-2.jpg",
-        ],
-        "featured": false,
-    },
+    
 ]

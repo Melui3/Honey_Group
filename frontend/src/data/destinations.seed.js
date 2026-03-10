@@ -1,5 +1,4 @@
-export const DESTINATIONS = [
-  {
+export const DESTINATIONS = [{
         "id": "nosy-be",
         "slug": "nosy-be",
         "title": "Nosy Be",
@@ -7,12 +6,12 @@ export const DESTINATIONS = [
         "teaser": "Lagons turquoise, plages infinies et rythme doux : Nosy Be incarne la détente tropicale version Madagascar.",
         "tags": ["Plages", "Détente", "Lagons"],
         "cover": "/media/destinations/cover-nosy-be.jpg",
-        "featured": true,
+        "featured": True,
         "gallery": [
-            "/media/destinations/gallery-nosy-be-1.jfif",
-            "/media/destinations/gallery-nosy-be-2.jfif",
+            "/media/destinations/gallery-nosy-be-1.jpg",
+            "/media/destinations/gallery-nosy-be-2.jpg",
             "/media/destinations/gallery-nosy-be-3.jpg",
-            "/media/destinations/gallery-nosy-be-4.jfif",
+            "/media/destinations/gallery-nosy-be-4.jpg",
         ],
     },
     {
@@ -23,7 +22,7 @@ export const DESTINATIONS = [
         "teaser": "Entre mémoire historique et plages sauvages, Sainte-Marie séduit par son authenticité et ses baleines en saison.",
         "tags": ["Plages", "Histoire", "Observation des baleines"],
         "cover": "/media/destinations/cover-sainte-marie.jpg",
-        "featured": true,
+        "featured": True,
         "gallery": [
             "/media/destinations/gallery-sainte-marie-1.jpg",
             "/media/destinations/gallery-sainte-marie-2.jpg",
@@ -38,7 +37,7 @@ export const DESTINATIONS = [
         "teaser": "Canyons sculptés, formations rocheuses et piscines naturelles : l’Isalo offre un spectacle minéral grandiose.",
         "tags": ["Randonnée", "Paysages", "Nature"],
         "cover": "/media/destinations/cover-isalo.jpg",
-        "featured": true,
+        "featured": True,
         "gallery": [
             "/media/destinations/gallery-isalo-1.jpg",
             "/media/destinations/gallery-isalo-2.webp",
@@ -53,7 +52,7 @@ export const DESTINATIONS = [
         "teaser": "L’Allée des Baobabs au coucher du soleil et une atmosphère culturelle forte : Morondava marque les esprits.",
         "tags": ["Baobabs", "Culture", "Photographie"],
         "cover": "/media/destinations/cover-morondava.jpg",
-        "featured": true,
+        "featured": True,
         "gallery": [
             "/media/destinations/gallery-morondava-1.jpg",
             "/media/destinations/gallery-morondava-2.jpg",
@@ -68,7 +67,7 @@ export const DESTINATIONS = [
         "teaser": "Baies spectaculaires, eaux turquoise et reliefs puissants : Diego-Suarez révèle un Nord sauvage et magnétique.",
         "tags": ["Baies", "Aventure", "Paysages"],
         "cover": "/media/destinations/cover-diego-suarez.jfif",
-        "featured": false,
+        "featured": False,
         "gallery": [
             "/media/destinations/gallery-diego-suarez-1.jpg",
             "/media/destinations/gallery-diego-suarez-2.jpg",
@@ -83,7 +82,7 @@ export const DESTINATIONS = [
         "teaser": "Ambiance côtière chaleureuse, couchers de soleil dorés et douceur de vivre : Majunga respire l’Ouest malgache.",
         "tags": ["Plages", "Couchers de soleil", "Ambiance locale"],
         "cover": "/media/destinations/cover-majunga.jpg",
-        "featured": false,
+        "featured": False,
         "gallery": [
             "/media/destinations/gallery-majunga-1.jpg",
             "/media/destinations/gallery-majunga-2.jpg",
@@ -98,7 +97,7 @@ export const DESTINATIONS = [
         "teaser": "Porte d’entrée de la côte Est, Toamasina mêle littoral vibrant, nature tropicale et accès vers l’arrière-pays.",
         "tags": ["Littoral", "Nature", "Côte Est"],
         "cover": "/media/destinations/cover-tamatave.jpg",
-        "featured": false,
+        "featured": False,
         "gallery": [
             "/media/destinations/gallery-tamatave-1.jpg",
             "/media/destinations/gallery-tamatave-2.jpg",
@@ -113,7 +112,7 @@ export const DESTINATIONS = [
         "teaser": "Point de départ du canal des Pangalanes, Manambato offre une immersion paisible entre eau, forêt et villages.",
         "tags": ["Canal des Pangalanes", "Nature", "Immersion"],
         "cover": "/media/destinations/cover-manambato.jpg",
-        "featured": false,
+        "featured": False,
         "gallery": [
             "/media/destinations/gallery-manambato-1.jpg",
             "/media/destinations/gallery-manambato-2.jpg",
@@ -128,10 +127,10 @@ export const DESTINATIONS = [
         "teaser": "Forêt primaire, biodiversité intacte et immersion totale : Vohimana est une parenthèse nature rare.",
         "tags": ["Forêt primaire", "Biodiversité", "Immersion"],
         "cover": "/media/destinations/cover-vohimana.jpg",
-        "featured": false,
+        "featured": False,
         "gallery": [
             "/media/destinations/gallery-vohimana-1.jpg",
-            "/media/destinations/gallery-vohimana-2.jpg",
+            "/media/destinations/gallery-vohimana-2.jfif",
             "/media/destinations/gallery-vohimana-3.jpg",
         ],
     },
@@ -143,7 +142,7 @@ export const DESTINATIONS = [
         "teaser": "Au cœur du Sud malgache, Tuléar est le point stratégique des grandes routes mythiques comme la RN7.",
         "tags": ["RN7", "Sud malgache", "Point de départ"],
         "cover": "/media/destinations/cover-tulear.jpg",
-        "featured": false,
+        "featured": False,
         "gallery": [
             "/media/destinations/gallery-tulear-1.jpg",
             "/media/destinations/gallery-tulear-2.jpg",
@@ -158,7 +157,7 @@ export const DESTINATIONS = [
         "teaser": "Falaises, plages sauvages et paysages contrastés : Fort-Dauphin incarne l’aventure dans l’extrême Sud.",
         "tags": ["Aventure", "Littoral", "Paysages sauvages"],
         "cover": "/media/destinations/cover-fort-dauphin.jpg",
-        "featured": false,
+        "featured": False,
         "gallery": [
             "/media/destinations/gallery-fort-dauphin-1.jpg",
             "/media/destinations/gallery-fort-dauphin-2.jpg",
@@ -172,11 +171,11 @@ export const DESTINATIONS = [
         "zone": "Centre",
         "teaser": "Capitale perchée entre collines et histoire, Antananarivo est le point de départ culturel de tout voyage.",
         "tags": ["Culture", "Histoire", "Capitale"],
-        "cover": "/media/destinations/cover-antananarivo.jpg",
-        "featured": false,
+        "cover": "/media/destinations/cover-antananarivo.jpeg",
+        "featured": False,
         "gallery": [
             "/media/destinations/gallery-antananarivo-1.jpg",
-            "/media/destinations/gallery-antananarivo-2.jpg",
+            "/media/destinations/gallery-antananarivo-2.jpeg",
             "/media/destinations/gallery-antananarivo-3.jpg",
         ],
     },
@@ -188,7 +187,7 @@ export const DESTINATIONS = [
         "teaser": "Autour de la capitale, les 12 collines sacrées racontent l’histoire royale et spirituelle de Madagascar.",
         "tags": ["Patrimoine", "Sites historiques", "Traditions"],
         "cover": "/media/destinations/cover-12-collines.jpg",
-        "featured": false,
+        "featured": False,
         "gallery": [
             "/media/destinations/gallery-12-collines-1.jpg",
             "/media/destinations/gallery-12-collines-2.jpg",

@@ -1,5 +1,5 @@
 export const EXCURSIONS = [
-  {
+    {
         "id": "ampefy",
         "slug": "ampefy",
         "title": "Ampefy",
@@ -7,7 +7,7 @@ export const EXCURSIONS = [
         "area": "Région Itasy (Ouest de Tanà)",
         "highlights": ["Lac Itasy", "Chutes", "Nature"],
         "cover": "/media/excursions/cover-ampefy.jpg",
-        "featured": true,
+        "featured": True,
         "gallery": [
             "/media/excursions/gallery-ampefy-1.jpg",
             "/media/excursions/gallery-ampefy-2.jpg",
@@ -24,7 +24,7 @@ export const EXCURSIONS = [
         "area": "Forêt de Mandraka (Est de Tanà)",
         "highlights": ["Forêt humide", "Balade", "Air pur"],
         "cover": "/media/excursions/cover-mandraka.jpg",
-        "featured": true,
+        "featured": True,
         "gallery": [
             "/media/excursions/gallery-mandraka-1.jpg",
             "/media/excursions/gallery-mandraka-2.jpg",
@@ -39,7 +39,7 @@ export const EXCURSIONS = [
         "area": "Région Alaotra-Mangoro",
         "highlights": ["Lac Mantasoa", "Week-end nature", "Détente"],
         "cover": "/media/excursions/cover-mantasoa.jpg",
-        "featured": true,
+        "featured": True,
         "gallery": [
             "/media/excursions/gallery-mantasoa-1.jpg",
             "/media/excursions/gallery-mantasoa-2.jpg",
@@ -53,8 +53,8 @@ export const EXCURSIONS = [
         "durationLabel": "2j / 1n ou 3j / 2n",
         "area": "Est – Forêt primaire",
         "highlights": ["Biodiversité", "Immersion", "Écotourisme"],
-        "cover": "/media/excursions/cover-vohimana.jpg",
-        "featured": false,
+        "cover": "/media/excursions/cover-vohimana.webp",
+        "featured": False,
         "gallery": [
             "/media/excursions/gallery-vohimana-1.jpg",
             "/media/excursions/gallery-vohimana-2.jpg",

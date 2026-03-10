@@ -1,5 +1,5 @@
 export const CIRCUITS = [
-  {
+    {
         "id": "le-sud",
         "slug": "le-sud-rn7-isalo-toliary",
         "title": "Le Sud – RN7, Isalo & Tuléar",
@@ -7,11 +7,11 @@ export const CIRCUITS = [
         "routeLabel": "Antananarivo → Tuléar (RN7)",
         "highlights": ["RN7", "Isalo", "Tuléar", "Nature & culture"],
         "cover": "/media/circuits/cover-circuit-sud.jpg",
-        "featured": true,
+        "featured": True,
         "notes": "",
         "gallery": [
             "/media/circuits/circuit-sud-1.jpg",
-            "/media/circuits/circuit-sud-2.jfif",
+            "/media/circuits/circuit-sud-2.jpg",
             "/media/circuits/circuit-sud-3.jpg",
         ],
     },
@@ -23,7 +23,7 @@ export const CIRCUITS = [
         "routeLabel": "Antananarivo → Morondava → Bekopaka",
         "highlights": ["Allée des Baobabs", "Tsingy", "Kirindy", "Couchers de soleil"],
         "cover": "/media/circuits/cover-circuit-ouest.jpg",
-        "featured": true,
+        "featured": True,
         "notes": "",
         "gallery": [
             "/media/circuits/circuit-ouest-1.jpg",
@@ -38,12 +38,12 @@ export const CIRCUITS = [
         "durationLabel": "8 à 12 jours",
         "routeLabel": "Nosy Be (détails) + Diego (aperçu)",
         "highlights": ["Nosy Be", "Plages & nautique", "Séjours détente", "Diego (aperçu)"],
-        "cover": "/media/circuits/cover-circuit-nord.jpg",
-        "featured": true,
+        "cover": "/media/circuits/cover-circuit-nord.jpeg",
+        "featured": True,
         "notes": "Fiche Diego manquante — on affiche un aperçu destination uniquement.",
         "gallery": [
             "/media/circuits/circuit-nord-1.jpg",
-            "/media/circuits/circuit-nord-2.jfif",
+            "/media/circuits/circuit-nord-2.jpg",
             "/media/circuits/circuit-nord-3.jpg",
         ],
     },
@@ -55,7 +55,7 @@ export const CIRCUITS = [
         "routeLabel": "Sainte-Marie + Manambato / Pangalanes",
         "highlights": ["Sainte-Marie", "Baleines (saison)", "Pangalanes", "Immersion nature"],
         "cover": "/media/circuits/cover-circuit-est.jpg",
-        "featured": true,
+        "featured": True,
         "notes": "",
         "gallery": [
             "/media/circuits/circuit-est-1.jpg",
@@ -71,12 +71,12 @@ export const CIRCUITS = [
         "routeLabel": "Antananarivo → Majunga",
         "highlights": ["Plages", "Côte Nord-Ouest", "Découverte"],
         "cover": "/media/circuits/cover-circuit-majunga.jpg",
-        "featured": false,
+        "featured": False,
         "notes": "À compléter avec la fiche PDF quand elle est prête.",
         "gallery": [
             "/media/circuits/circuit-majunga-1.jpg",
             "/media/circuits/circuit-majunga-2.jpg",
-            "/media/circuits/circuit-majunga-3.jpg",
+            "/media/circuits/circuit-majunga-3.webp",
         ],
     },
     {
@@ -87,10 +87,10 @@ export const CIRCUITS = [
         "routeLabel": "Antananarivo → Manambato → Pangalanes",
         "highlights": ["Canal des Pangalanes", "Immersion", "Nature"],
         "cover": "/media/circuits/cover-circuit-manambato.jpg",
-        "featured": false,
+        "featured": False,
         "notes": "À compléter avec la fiche PDF quand elle est prête.",
         "gallery": [
-            "/media/circuits/circuit-manambato-1.jpg",
+            "/media/circuits/circuit-manambato-1.webp",
             "/media/circuits/circuit-manambato-2.jpg",
             "/media/circuits/circuit-manambato-3.jpg",
         ],
@@ -103,7 +103,7 @@ export const CIRCUITS = [
         "routeLabel": "Antananarivo → Makay",
         "highlights": ["Aventure", "Paysages", "Expédition"],
         "cover": "/media/circuits/cover-circuit-makay.jfif",
-        "featured": false,
+        "featured": False,
         "notes": "Circuit cité dans le Livre (Sud : Tuléar, Makay).",
         "gallery": [
             "/media/circuits/circuit-makay-1.jpg",
