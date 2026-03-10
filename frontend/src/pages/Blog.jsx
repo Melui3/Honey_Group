@@ -37,9 +37,6 @@ export default function Blog() {
   const [query, setQuery] = useState("");
   const [posts, setPosts] = useState(BLOG_POSTS);
 
-  useEffect(() => {
-    loadWithFallback("/api/blog-posts/", BLOG_POSTS).then(setPosts);
-  }, []);
 
   const featured = posts?.[0] || null;
 

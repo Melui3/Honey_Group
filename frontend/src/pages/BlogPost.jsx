@@ -125,15 +125,26 @@ function renderContent(content) {
 
 export default function BlogPost() {
   const { slug } = useParams();
-  const [posts, setPosts] = useState(BLOG_POSTS);
-
-  useEffect(() => {
-    loadWithFallback("/api/blog-posts/", BLOG_POSTS).then(setPosts);
-  }, []);
+  const [posts] = useState(BLOG_POSTS);
 
   const post = useMemo(
     () => (posts || []).find((p) => p.slug === slug) || null,
     [posts, slug]
+  );
+
+  const index = useMemo(() => {
+    if (!post) return -1;
+    return posts.findIndex((p) => p.slug === post.slug);
+  }, [posts, post]);
+
+  const prevPost = useMemo(
+    () => (index > 0 ? posts[index - 1] : null),
+    [posts, index]
+  );
+
+  const nextPost = useMemo(
+    () => (index >= 0 && index < posts.length - 1 ? posts[index + 1] : null),
+    [posts, index]
   );
 
   if (!post) {
