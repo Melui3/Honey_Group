@@ -259,7 +259,7 @@ const aboutImg = "/media/about/about-team.png";
             <div className="mt-10 flex flex-wrap justify-center gap-3">
               {[
                 { label: "YouTube", href: "https://www.youtube.com/@SamRob-l1z", Icon: IconYouTube },
-                { label: "Facebook", href: "https://www.google.com/search?q=https://web.facebook.com/profile.php%3Fid%3D61554781021481", Icon: IconFacebook },
+                { label: "Facebook", href: "https://web.facebook.com/profile.php%3Fid%3D61554781021481", Icon: IconFacebook },
                   { label: "TikTok", href: "https://www.tiktok.com/@honeygr7?lang=fr", Icon: IconTikTok },
                   { label: "Instagram", href: "https://www.instagram.com/honey_group_mada/", Icon: IconInstagram },
               ].map(({ label, href, Icon }) => (
