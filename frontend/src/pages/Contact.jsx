@@ -249,10 +249,18 @@ useEffect(() => {
                 }
               />
 
-              <InfoCard
+             <InfoCard
                 Icon={Phone}
                 title="Téléphone"
-                text="Si tu veux aller vite, laisse ton numéro dans le formulaire."
+                text="Contact direct pour échanger rapidement sur votre projet de voyage."
+                action={
+                  <a
+                    href="tel:+261322271493"
+                    className={[btn.outline("blue", "md", "pill"), "inline-flex items-center gap-2"].join(" ")}
+                  >
+                    +261 32 22 714 93 <ArrowRight className="h-5 w-5" />
+                  </a>
+                }
               />
 
               <InfoCard
