@@ -29,5 +29,6 @@ jobs:
           server: ao7dvw.ftp.infomaniak.com
           username: ao7dvw_Virginie
           password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
           local-dir: frontend/dist/
           server-dir: sites/honeygroupmadatourism.com/
