@@ -1,4 +1,6 @@
-from rest_framework import viewsets
+from django.conf import settings
+from django.core.mail import send_mail
+from rest_framework import viewsets, status
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import AllowAny
@@ -43,6 +45,61 @@ class VideoCardViewSet(PublicReadOnly):
 class HeroMediaViewSet(PublicReadOnly):
     queryset = HeroMedia.objects.all()
     serializer_class = HeroMediaSerializer
+
+class ContactView(APIView):
+    permission_classes = [AllowAny]
+
+    REQUIRED_FIELDS = ("name", "email", "message")
+    TRAVEL_TYPE_LABELS = {
+        "sur-mesure": "Sur mesure",
+        "circuit": "Circuit organisé",
+        "excursion": "Excursion",
+        "signature": "Expérience Signature",
+    }
+
+    def post(self, request):
+        data = request.data
+
+        for field in self.REQUIRED_FIELDS:
+            if not data.get(field, "").strip():
+                return Response(
+                    {"detail": f"Le champ « {field} » est obligatoire."},
+                    status=status.HTTP_400_BAD_REQUEST,
+                )
+
+        travel_label = self.TRAVEL_TYPE_LABELS.get(data.get("travel_type", ""), data.get("travel_type", "—"))
+
+        body = (
+            f"Nouvelle demande de devis — Honey Group\n"
+            f"{'=' * 50}\n\n"
+            f"Nom       : {data.get('name')}\n"
+            f"Email     : {data.get('email')}\n"
+            f"Téléphone : {data.get('phone') or '—'}\n\n"
+            f"Type      : {travel_label}\n"
+            f"Dates     : {data.get('dates') or '—'}\n"
+            f"Durée     : {data.get('duration') or '—'}\n"
+            f"Budget    : {data.get('budget') or '—'}\n\n"
+            f"Message :\n{data.get('message')}\n"
+        )
+
+        contact_email = getattr(settings, "CONTACT_EMAIL", "honeygroup.mg17@gmail.com")
+
+        try:
+            send_mail(
+                subject=f"[Devis] {data.get('name')} — {travel_label}",
+                message=body,
+                from_email=settings.DEFAULT_FROM_EMAIL,
+                recipient_list=[contact_email],
+                fail_silently=False,
+            )
+        except Exception as exc:
+            return Response(
+                {"detail": "Erreur lors de l'envoi. Réessayez plus tard."},
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            )
+
+        return Response({"detail": "Demande envoyée."}, status=status.HTTP_200_OK)
+
 
 class VideosBundleView(APIView):
     permission_classes = [AllowAny]

@@ -3,7 +3,7 @@ from rest_framework.routers import DefaultRouter
 from .views import (
     BlogPostViewSet, CircuitViewSet, DestinationViewSet, ExcursionViewSet,
     SignatureViewSet, VideoCardViewSet, HeroMediaViewSet,
-    VideosBundleView,   # ← on ajoute ça
+    VideosBundleView, ContactView,
 )
 
 router = DefaultRouter()
@@ -17,4 +17,5 @@ router.register("hero-media", HeroMediaViewSet, basename="hero-media")
 
 urlpatterns = [
     path("videos/", VideosBundleView.as_view(), name="videos-bundle"),
+    path("contact/", ContactView.as_view(), name="contact"),
 ] + router.urls

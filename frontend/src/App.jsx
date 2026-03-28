@@ -1,15 +1,24 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
-import MentionsLegales from "./pages/MentionsLegales";
-import Confidentialite from "./pages/Confidentialite";
-import Home from "./pages/Home.jsx";
-import CircuitsDestinations from "./pages/CircuitsDestinations.jsx";
-import Excursions from "./pages/Excursions.jsx";
-import Signatures from "./pages/Signatures.jsx";
-import Blog from "./pages/Blog.jsx";
-import BlogPost from "./pages/BlogPost.jsx";
-import Contact from "./pages/Contact.jsx";
-import About from "./pages/About.jsx"; 
+
+const Home = lazy(() => import("./pages/Home.jsx"));
+const CircuitsDestinations = lazy(() => import("./pages/CircuitsDestinations.jsx"));
+const Excursions = lazy(() => import("./pages/Excursions.jsx"));
+const Signatures = lazy(() => import("./pages/Signatures.jsx"));
+const Blog = lazy(() => import("./pages/Blog.jsx"));
+const BlogPost = lazy(() => import("./pages/BlogPost.jsx"));
+const Contact = lazy(() => import("./pages/Contact.jsx"));
+const About = lazy(() => import("./pages/About.jsx"));
+const MentionsLegales = lazy(() => import("./pages/MentionsLegales"));
+const Confidentialite = lazy(() => import("./pages/Confidentialite"));
+
+function PageLoader() {
+  return (
+    <div className="min-h-screen grid place-items-center bg-white">
+      <div className="h-8 w-8 rounded-full border-4 border-[var(--honey-blue)] border-t-transparent animate-spin" />
+    </div>
+  );
+}
 
 function NotFound() {
   return (
@@ -32,24 +41,21 @@ function NotFound() {
 
 export default function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-
-      <Route path="/circuits-destinations" element={<CircuitsDestinations />} />
-      <Route path="/excursions" element={<Excursions />} />
-      <Route path="/signatures" element={<Signatures />} />
-
-      <Route path="/blog" element={<Blog />} />
-      <Route path="/blog/:slug" element={<BlogPost />} />
-
-      <Route path="/contact" element={<Contact />} />
-      <Route path="/a-propos" element={<About />} />
-
-      <Route path="/home" element={<Navigate to="/" replace />} />
-      <Route path="*" element={<NotFound />} />
-
-      <Route path="/mentions-legales" element={<MentionsLegales />} />
-<Route path="/confidentialite" element={<Confidentialite />} />
-    </Routes>
+    <Suspense fallback={<PageLoader />}>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/circuits-destinations" element={<CircuitsDestinations />} />
+        <Route path="/excursions" element={<Excursions />} />
+        <Route path="/signatures" element={<Signatures />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:slug" element={<BlogPost />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/a-propos" element={<About />} />
+        <Route path="/mentions-legales" element={<MentionsLegales />} />
+        <Route path="/confidentialite" element={<Confidentialite />} />
+        <Route path="/home" element={<Navigate to="/" replace />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Suspense>
   );
 }

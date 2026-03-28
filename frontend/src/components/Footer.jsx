@@ -227,19 +227,8 @@ export default function Footer() {
         <div className="mt-10 flex flex-col gap-3 border-t border-[var(--honey-border)] pt-6 text-xs font-semibold text-slate-500 md:flex-row md:items-center md:justify-between">
           <div>© {new Date().getFullYear()} Honey Group — Tous droits réservés.</div>
         <div className="flex gap-4">
-          <NavLink
-            to="/mentions-legales"
-            className="hover:text-slate-800"
-          >
-            Mentions légales
-          </NavLink>
-
-          <NavLink
-            to="/confidentialite"
-            className="hover:text-slate-800"
-          >
-            Confidentialité
-          </NavLink>
+          <NavLink href="/mentions-legales">Mentions légales</NavLink>
+          <NavLink href="/confidentialite">Confidentialité</NavLink>
         </div>
         </div>
       </div>

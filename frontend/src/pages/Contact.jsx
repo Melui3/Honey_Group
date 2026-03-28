@@ -50,23 +50,45 @@ const InfoCard = ({ Icon, title, text, action }) => (
   </div>
 );
 
+const API_BASE = import.meta.env.VITE_API_BASE || "";
+
 export default function Contact() {
   const [status, setStatus] = useState("idle");
-
-  const onSubmit = (e) => {
-    e.preventDefault();
-    setStatus("sent");
-  };
-
   const [travelType, setTravelType] = useState("sur-mesure");
 
-useEffect(() => {
-  const params = new URLSearchParams(window.location.search);
-  const type = params.get("type");
-  if (type) {
-    setTravelType(type);
-  }
-}, []);
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const type = params.get("type");
+    if (type) setTravelType(type);
+  }, []);
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("loading");
+    const form = e.currentTarget;
+    const data = {
+      name: form.elements.name.value,
+      email: form.elements.email.value,
+      phone: form.elements.phone.value,
+      travel_type: travelType,
+      dates: form.elements.dates.value,
+      duration: form.elements.duration.value,
+      budget: form.elements.budget.value,
+      message: form.elements.message.value,
+    };
+    try {
+      const res = await fetch(`${API_BASE}/api/contact/`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) throw new Error("server");
+      setStatus("sent");
+      form.reset();
+    } catch {
+      setStatus("error");
+    }
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -134,7 +156,7 @@ useEffect(() => {
                 Demander un devis
               </h2>
               <p className="mt-2 text-sm font-semibold text-[var(--honey-blue)]/75">
-                Plus tu es précis, plus on te fait un itinéraire propre. (Front-only pour l’instant.)
+                Plus tu es précis, plus on te fait un itinéraire propre.
               </p>
 
               <form onSubmit={onSubmit} className="mt-8 grid gap-5">
@@ -142,6 +164,7 @@ useEffect(() => {
                   <Field label="Nom" hint="Obligatoire">
                     <input
                       required
+                      name="name"
                       className="w-full rounded-2xl border border-[var(--honey-border)] bg-white px-4 py-3 text-sm font-semibold outline-none focus:ring-4 focus:ring-[color-mix(in_srgb,var(--honey-blue)_12%,transparent)]"
                       placeholder="Votre nom"
                     />
@@ -151,6 +174,7 @@ useEffect(() => {
                     <input
                       required
                       type="email"
+                      name="email"
                       className="w-full rounded-2xl border border-[var(--honey-border)] bg-white px-4 py-3 text-sm font-semibold outline-none focus:ring-4 focus:ring-[color-mix(in_srgb,var(--honey-blue)_12%,transparent)]"
                       placeholder="vous@email.com"
                     />
@@ -160,6 +184,7 @@ useEffect(() => {
                 <div className="grid gap-5 md:grid-cols-2">
                   <Field label="Téléphone" hint="Optionnel">
                     <input
+                      name="phone"
                       className="w-full rounded-2xl border border-[var(--honey-border)] bg-white px-4 py-3 text-sm font-semibold outline-none focus:ring-4 focus:ring-[color-mix(in_srgb,var(--honey-blue)_12%,transparent)]"
                       placeholder="+33 …"
                     />
@@ -167,6 +192,7 @@ useEffect(() => {
 
                   <Field label="Type de voyage">
                     <select
+                      name="travel_type"
                       className="w-full rounded-2xl border border-[var(--honey-border)] bg-white px-4 py-3 text-sm font-semibold outline-none focus:ring-4 focus:ring-[color-mix(in_srgb,var(--honey-blue)_12%,transparent)]"
                       value={travelType}
                       onChange={(e) => setTravelType(e.target.value)}
@@ -182,30 +208,31 @@ useEffect(() => {
                 <div className="grid gap-5 md:grid-cols-3">
                   <Field label="Dates" hint="Ex: août 2026">
                     <input
+                      name="dates"
                       className="w-full rounded-2xl border border-[var(--honey-border)] bg-white px-4 py-3 text-sm font-semibold outline-none focus:ring-4 focus:ring-[color-mix(in_srgb,var(--honey-blue)_12%,transparent)]"
                       placeholder="Quand ?"
                     />
                   </Field>
                   <Field label="Durée" hint="Ex: 10 jours">
                     <input
+                      name="duration"
                       className="w-full rounded-2xl border border-[var(--honey-border)] bg-white px-4 py-3 text-sm font-semibold outline-none focus:ring-4 focus:ring-[color-mix(in_srgb,var(--honey-blue)_12%,transparent)]"
                       placeholder="Combien de temps ?"
                     />
                   </Field>
                   <Field label="Budget" hint="Ex: 1200€/pers">
                     <input
+                      name="budget"
                       className="w-full rounded-2xl border border-[var(--honey-border)] bg-white px-4 py-3 text-sm font-semibold outline-none focus:ring-4 focus:ring-[color-mix(in_srgb,var(--honey-blue)_12%,transparent)]"
                       placeholder="Budget approx."
                     />
                   </Field>
                 </div>
 
-                <Field
-                  label="Message"
-                  hint="Obligatoire"
-                >
+                <Field label="Message" hint="Obligatoire">
                   <textarea
                     required
+                    name="message"
                     rows={7}
                     className="w-full rounded-2xl border border-[var(--honey-border)] bg-white px-4 py-3 text-sm font-semibold outline-none focus:ring-4 focus:ring-[color-mix(in_srgb,var(--honey-blue)_12%,transparent)]"
                     placeholder="Envies, confort, rythme, régions, activités… Dis-nous ce que tu veux vraiment."
@@ -215,21 +242,23 @@ useEffect(() => {
                 <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                   <button
                     type="submit"
-                    className={[btn.primary("orange", "md", "pill"), "inline-flex items-center gap-2"].join(" ")}
+                    disabled={status === "loading"}
+                    className={[btn.primary("orange", "md", "pill"), "inline-flex items-center gap-2 disabled:opacity-60"].join(" ")}
                   >
-                    Envoyer la demande <ArrowRight className="h-5 w-5" />
+                    {status === "loading" ? "Envoi en cours…" : <><span>Envoyer la demande</span><ArrowRight className="h-5 w-5" /></>}
                   </button>
-
-                  <div className="text-xs font-semibold text-[var(--honey-blue)]/60">
-                    Envoi réel plus tard (Django).
-                  </div>
                 </div>
 
-                {status === "sent" ? (
+                {status === "sent" && (
                   <div className="rounded-2xl bg-[color-mix(in_srgb,var(--honey-green)_12%,white)] px-5 py-4 text-sm font-extrabold text-[var(--honey-green)]">
-                    Demande envoyée (placeholder). On branchera Django ensuite.
+                    Demande envoyée ! On revient vers vous rapidement.
                   </div>
-                ) : null}
+                )}
+                {status === "error" && (
+                  <div className="rounded-2xl bg-[color-mix(in_srgb,red_10%,white)] px-5 py-4 text-sm font-extrabold text-red-600">
+                    Une erreur est survenue. Réessayez ou contactez-nous directement par email.
+                  </div>
+                )}
               </form>
             </div>
 

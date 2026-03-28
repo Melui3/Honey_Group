@@ -1,10 +1,9 @@
-import React, { useMemo, useState, useEffect } from "react";
+import React, { useMemo, useState } from "react";
 import Layout from "../components/Layout";
 import PageHero from "../components/PageHero";
 import Lightbox from "../components/Lightbox";
 import { btn } from "../ui/buttons";
 import { EXCURSIONS } from "../data";
-import { loadWithFallback } from "../lib/dataSource";
 
 const Container = ({ children }) => (
   <div className="mx-auto w-full max-w-7xl px-5">{children}</div>
@@ -44,10 +43,8 @@ export default function Excursions() {
   const [lbOpen, setLbOpen] = useState(false);
   const [lbTitle, setLbTitle] = useState("");
   const [lbImages, setLbImages] = useState([]);
-  const [remote, setRemote] = useState([]);
 
-
-const all = useMemo(() => EXCURSIONS, []);
+  const all = useMemo(() => EXCURSIONS, []);
   const areas = useMemo(() => {
     const set = new Set(all.map((e) => e.area).filter(Boolean));
     return ["Toutes", ...Array.from(set)];
