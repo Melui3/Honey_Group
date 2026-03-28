@@ -27,7 +27,7 @@ jobs:
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ao7dvw.ftp.infomaniak.com
-          username: ao7dvw_Virginie
+          username: ao7dvw_Virginia
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftps
           local-dir: frontend/dist/
