@@ -30,4 +30,4 @@ jobs:
           username: ao7dvw_Virginie
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: frontend/dist/
-          server-dir: /sites/honeygroupmadatourism.com/
+          server-dir: sites/honeygroupmadatourism.com/
