@@ -32,3 +32,11 @@ jobs:
           protocol: ftps
           local-dir: frontend/dist/
           server-dir: sites/honeygroupmadatourism.com/
+
+          - name: Build
+        working-directory: frontend
+        env:
+          VITE_API_URL: https://national-oralia-honeygroup-20067583.koyeb.app
+        run: |
+          npm install
+          npm run build
