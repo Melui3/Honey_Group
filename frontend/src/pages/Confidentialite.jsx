@@ -1,9 +1,16 @@
 import Layout from "../components/Layout";
 import PageHero from "../components/PageHero";
+import Seo from "../components/Seo";
 
 export default function Confidentialite() {
   return (
     <div className="min-h-screen bg-white">
+      <Seo
+        title="Politique de confidentialité"
+        description="Politique de confidentialité de Honey Group — comment nous collectons, utilisons et protégeons vos données personnelles."
+        path="/confidentialite"
+        noindex
+      />
       <Layout>
         <PageHero
           title="Politique de confidentialité"

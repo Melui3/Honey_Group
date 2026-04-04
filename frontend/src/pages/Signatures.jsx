@@ -3,6 +3,7 @@ import { SIGNATURES } from "../data";
 import { loadWithFallback } from "../lib/dataSource";
 import Layout from "../components/Layout";
 import PageHero from "../components/PageHero";
+import Seo from "../components/Seo";
 import Lightbox from "../components/Lightbox";
 import { btn } from "../ui/buttons";
 
@@ -38,6 +39,11 @@ export default function Signatures() {
 
   return (
     <div className="min-h-screen bg-white">
+      <Seo
+        title="Expériences Signature"
+        description="Découvrez les expériences Signature de Honey Group à Madagascar — des séjours premium, personnalisables et inoubliables conçus pour les voyageurs exigeants."
+        path="/signatures"
+      />
       <Layout>
 
       <PageHero

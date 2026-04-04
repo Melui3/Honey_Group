@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from "react";
 import Layout from "../components/Layout";
 import PageHero from "../components/PageHero";
+import Seo from "../components/Seo";
 import Lightbox from "../components/Lightbox";
 import { btn } from "../ui/buttons";
 import { EXCURSIONS } from "../data";
@@ -69,6 +70,11 @@ export default function Excursions() {
 
   return (
     <div className="min-h-screen bg-white">
+      <Seo
+        title="Excursions & Activités"
+        description="Explorez Madagascar à travers nos excursions courtes et immersives. Nature, faune unique, culture locale et rencontres authentiques — des expériences pensées par Honey Group."
+        path="/excursions"
+      />
       <Layout>
 
       <PageHero

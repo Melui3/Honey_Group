@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Disallow: /mentions-legales
+Disallow: /confidentialite
+
+Sitemap: https://honey-group.mg/sitemap.xml

@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import PageHero from "../components/PageHero";
 import Layout from "../components/Layout";
+import Seo from "../components/Seo";
 import { card, bar, media } from "../ui/cards";
 import { btn } from "../ui/buttons";
 import { CIRCUITS, DESTINATIONS, SIGNATURES, EXCURSIONS } from "../data";
@@ -238,6 +239,11 @@ export default function CircuitsDestinations() {
 
   return (
     <div className="min-h-screen bg-white">
+      <Seo
+        title="Circuits & Destinations"
+        description="Explorez tous les circuits organisés, destinations, excursions et expériences signatures à Madagascar proposés par Honey Group. Trouvez le voyage qui vous correspond."
+        path="/circuits-destinations"
+      />
       <Layout>
 
       <PageHero

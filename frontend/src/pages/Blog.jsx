@@ -1,6 +1,7 @@
 import React, { useMemo, useState, useEffect } from "react";
 import Layout from "../components/Layout";
 import PageHero from "../components/PageHero";
+import Seo from "../components/Seo";
 import {BLOG_POSTS } from "../data";
 import { loadWithFallback } from "../lib/dataSource";
 import { btn } from "../ui/buttons";
@@ -50,6 +51,11 @@ export default function Blog() {
 
   return (
     <div className="min-h-screen bg-white">
+      <Seo
+        title="Blog & Actualités"
+        description="Conseils, guides et inspirations pour préparer votre voyage à Madagascar. Découvrez nos articles sur les circuits, la faune, la culture et les meilleures destinations."
+        path="/blog"
+      />
       <Layout>
 
       <PageHero

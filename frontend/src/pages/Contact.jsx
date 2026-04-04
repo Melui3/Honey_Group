@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Layout from "../components/Layout";
 import PageHero from "../components/PageHero";
+import Seo from "../components/Seo";
 import { btn } from "../ui/buttons";
 import { useEffect } from "react";
 import {
@@ -50,7 +51,7 @@ const InfoCard = ({ Icon, title, text, action }) => (
   </div>
 );
 
-const API_BASE = import.meta.env.VITE_API_BASE || "";
+const API_BASE = import.meta.env.VITE_API_URL || "";
 
 export default function Contact() {
   const [status, setStatus] = useState("idle");
@@ -92,6 +93,11 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen bg-white">
+      <Seo
+        title="Contact & devis"
+        description="Décrivez-nous votre voyage à Madagascar et recevez un itinéraire sur mesure. Réponse rapide par email ou téléphone — pas de blabla, juste un plan clair."
+        path="/contact"
+      />
       <Layout>
 
       <PageHero

@@ -2,6 +2,7 @@ import React, { useMemo, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Layout from "../components/Layout";
 import PageHero from "../components/PageHero";
+import Seo from "../components/Seo";
 import { btn } from "../ui/buttons";
 import {BLOG_POSTS } from "../data";
 import { loadWithFallback } from "../lib/dataSource";
@@ -150,6 +151,7 @@ export default function BlogPost() {
   if (!post) {
     return (
       <div className="min-h-screen bg-white">
+        <Seo title="Article introuvable" path={`/blog/${slug}`} noindex />
         <Layout>
           <PageHero
             title="Article introuvable"
@@ -166,6 +168,12 @@ export default function BlogPost() {
 
   return (
     <div className="min-h-screen bg-white">
+      <Seo
+        title={post.title}
+        description={post.excerpt}
+        path={`/blog/${post.slug}`}
+        ogImage={post.cover}
+      />
       <Layout>
         <PageHero
           title={post.title}
@@ -198,9 +206,9 @@ export default function BlogPost() {
                   {post.author ? <span>{post.author}</span> : null}
                 </div>
 
-                <h1 className="mt-3 text-3xl font-black tracking-tight text-[var(--honey-blue)]">
+                <h2 className="mt-3 text-3xl font-black tracking-tight text-[var(--honey-blue)]">
                   {post.title}
-                </h1>
+                </h2>
 
                 {/* Gallery */}
                 {gallery.length ? (

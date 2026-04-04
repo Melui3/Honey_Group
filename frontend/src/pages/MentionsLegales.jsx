@@ -1,9 +1,16 @@
 import Layout from "../components/Layout";
 import PageHero from "../components/PageHero";
+import Seo from "../components/Seo";
 
 export default function MentionsLegales() {
   return (
     <div className="min-h-screen bg-white">
+      <Seo
+        title="Mentions légales"
+        description="Mentions légales du site Honey Group — informations sur l'éditeur, l'hébergeur et les conditions d'utilisation."
+        path="/mentions-legales"
+        noindex
+      />
       <Layout>
         <PageHero
           title="Mentions légales"

@@ -1,6 +1,7 @@
 import React from "react";
 import Layout from "../components/Layout";
 import PageHero from "../components/PageHero";
+import Seo from "../components/Seo";
 import { btn } from "../ui/buttons";
 
 const Container = ({ children }) => (
@@ -40,6 +41,11 @@ const Card = ({ tone = "green", children }) => {
 export default function About() {
   return (
     <div className="min-h-screen bg-[var(--honey-bg)] text-slate-900">
+      <Seo
+        title="À propos"
+        description="Découvrez Honey Group, agence de tourisme à Madagascar. Notre histoire, notre expertise terrain et nos engagements pour un tourisme authentique et responsable."
+        path="/a-propos"
+      />
       <Layout>
         <PageHero
           title="Bienvenue dans l’univers de Honey Group"
@@ -57,9 +63,9 @@ export default function About() {
                   Qui sommes-nous ?
                 </div>
 
-                <h1 className="mt-4 text-3xl font-black tracking-tight text-[var(--honey-blue)] md:text-4xl">
+                <h2 className="mt-4 text-3xl font-black tracking-tight text-[var(--honey-blue)] md:text-4xl">
                   Bien plus qu’un tour opérateur
-                </h1>
+                </h2>
 
                 <div className="mt-8 space-y-4 text-sm font-semibold text-[var(--honey-blue)]/80 leading-relaxed">
                   <p>

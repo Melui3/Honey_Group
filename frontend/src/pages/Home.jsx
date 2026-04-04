@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import Seo from "../components/Seo";
 import { card, bar, media, layer } from "../ui/cards";
 import { btn } from "../ui/buttons";
 import {CIRCUITS, DESTINATIONS, SIGNATURES, EXCURSIONS, BLOG_POSTS, VIDEO_CARDS, HERO_MEDIA } from "../data";
@@ -202,6 +203,10 @@ const aboutImg = "/media/about/about-team.png";
 
   return (
     <div className="min-h-screen bg-[var(--honey-bg)] text-slate-900" id="home">
+      <Seo
+        path="/"
+        description="Honey Group, agence de tourisme à Madagascar. Voyages sur mesure, circuits organisés, excursions et expériences signatures conçus par des experts locaux. Authentique et responsable."
+      />
       <Header />
 
       {/* ================= HERO ================= */}
