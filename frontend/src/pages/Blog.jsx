@@ -2,7 +2,6 @@ import React, { useMemo, useState, useEffect } from "react";
 import Layout from "../components/Layout";
 import PageHero from "../components/PageHero";
 import Seo from "../components/Seo";
-import {BLOG_POSTS } from "../data";
 import { loadWithFallback } from "../lib/dataSource";
 import { btn } from "../ui/buttons";
 
@@ -36,8 +35,11 @@ const Pill = ({ children, tone = "green" }) => {
 
 export default function Blog() {
   const [query, setQuery] = useState("");
-  const [posts, setPosts] = useState(BLOG_POSTS);
+  const [posts, setPosts] = useState([]);
 
+  useEffect(() => {
+    loadWithFallback("/api/blog-posts/", []).then(setPosts);
+  }, []);
 
   const featured = posts?.[0] || null;
 

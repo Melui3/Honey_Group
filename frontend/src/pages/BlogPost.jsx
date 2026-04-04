@@ -4,7 +4,6 @@ import Layout from "../components/Layout";
 import PageHero from "../components/PageHero";
 import Seo from "../components/Seo";
 import { btn } from "../ui/buttons";
-import {BLOG_POSTS } from "../data";
 import { loadWithFallback } from "../lib/dataSource";
 
 /* -------------------------------------------- */
@@ -126,7 +125,15 @@ function renderContent(content) {
 
 export default function BlogPost() {
   const { slug } = useParams();
-  const [posts] = useState(BLOG_POSTS);
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    loadWithFallback("/api/blog-posts/", []).then((data) => {
+      setPosts(data);
+      setLoading(false);
+    });
+  }, []);
 
   const post = useMemo(
     () => (posts || []).find((p) => p.slug === slug) || null,
@@ -147,6 +154,14 @@ export default function BlogPost() {
     () => (index >= 0 && index < posts.length - 1 ? posts[index + 1] : null),
     [posts, index]
   );
+
+  if (loading) {
+    return (
+      <div className="min-h-screen grid place-items-center bg-white">
+        <div className="h-8 w-8 rounded-full border-4 border-[var(--honey-blue)] border-t-transparent animate-spin" />
+      </div>
+    );
+  }
 
   if (!post) {
     return (

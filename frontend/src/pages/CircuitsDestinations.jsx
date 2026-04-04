@@ -4,7 +4,6 @@ import Layout from "../components/Layout";
 import Seo from "../components/Seo";
 import { card, bar, media } from "../ui/cards";
 import { btn } from "../ui/buttons";
-import { CIRCUITS, DESTINATIONS, SIGNATURES, EXCURSIONS } from "../data";
 import { loadWithFallback } from "../lib/dataSource";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -202,16 +201,16 @@ export default function CircuitsDestinations() {
   const [query, setQuery] = useState("");
   const [zone, setZone] = useState("Toutes");
 
-  const [destinations, setDestinations] = useState(DESTINATIONS);
-  const [circuits, setCircuits] = useState(CIRCUITS);
-  const [excursions, setExcursions] = useState(EXCURSIONS);
-  const [signatures, setSignatures] = useState(SIGNATURES);
+  const [destinations, setDestinations] = useState([]);
+  const [circuits, setCircuits] = useState([]);
+  const [excursions, setExcursions] = useState([]);
+  const [signatures, setSignatures] = useState([]);
 
   useEffect(() => {
-    loadWithFallback("/api/destinations/", DESTINATIONS).then(setDestinations);
-    loadWithFallback("/api/circuits/", CIRCUITS).then(setCircuits);
-    loadWithFallback("/api/excursions/", EXCURSIONS).then(setExcursions);
-    loadWithFallback("/api/signatures/", SIGNATURES).then(setSignatures);
+    loadWithFallback("/api/destinations/", []).then(setDestinations);
+    loadWithFallback("/api/circuits/", []).then(setCircuits);
+    loadWithFallback("/api/excursions/", []).then(setExcursions);
+    loadWithFallback("/api/signatures/", []).then(setSignatures);
   }, []);
 
   const zones = useMemo(() => {

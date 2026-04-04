@@ -1,5 +1,4 @@
 import React, { useMemo, useState, useEffect } from "react";
-import { SIGNATURES } from "../data";
 import { loadWithFallback } from "../lib/dataSource";
 import Layout from "../components/Layout";
 import PageHero from "../components/PageHero";
@@ -23,7 +22,11 @@ const Img = ({ src, alt, className }) => (
 
 export default function Signatures() {
  
-  const all = useMemo(() => SIGNATURES, []);
+  const [all, setAll] = useState([]);
+
+  useEffect(() => {
+    loadWithFallback("/api/signatures/", []).then(setAll);
+  }, []);
   const [lbOpen, setLbOpen] = useState(false);
   const [lbTitle, setLbTitle] = useState("");
   const [lbImages, setLbImages] = useState([]);

@@ -4,7 +4,6 @@ import Footer from "../components/Footer";
 import Seo from "../components/Seo";
 import { card, bar, media, layer } from "../ui/cards";
 import { btn } from "../ui/buttons";
-import {CIRCUITS, DESTINATIONS, SIGNATURES, EXCURSIONS, BLOG_POSTS, VIDEO_CARDS, HERO_MEDIA } from "../data";
 import { loadWithFallback } from "../lib/dataSource";
 import {
  Play,
@@ -142,26 +141,23 @@ const IconFacebook = ({ className = "h-5 w-5" }) => (
 /* -------------------------------------------- */
 
 export default function Home() {
-  const [destinations, setDestinations] = useState(DESTINATIONS);
-  const [circuits, setCircuits] = useState(CIRCUITS);
-  const [excursions, setExcursions] = useState(EXCURSIONS);
-  const [signatures, setSignatures] = useState(SIGNATURES);
-  const [blogPosts, setBlogPosts] = useState(BLOG_POSTS);
+  const [destinations, setDestinations] = useState([]);
+  const [circuits, setCircuits] = useState([]);
+  const [excursions, setExcursions] = useState([]);
+  const [signatures, setSignatures] = useState([]);
+  const [blogPosts, setBlogPosts] = useState([]);
 
-  const [heroMedia, setHeroMedia] = useState(HERO_MEDIA || { mode: "poster", poster: "/media/hero/hero.jpg" });
-  const [videoCards, setVideoCards] = useState(VIDEO_CARDS);
+  const [heroMedia, setHeroMedia] = useState({ mode: "poster", poster: "/media/hero/hero.jpg" });
+  const [videoCards, setVideoCards] = useState([]);
 
   useEffect(() => {
-    // Si l’API existe, elle remplace les seeds. Sinon seeds restent.
-    loadWithFallback("/api/destinations/", DESTINATIONS).then(setDestinations);
-    loadWithFallback("/api/circuits/", CIRCUITS).then(setCircuits);
-    loadWithFallback("/api/excursions/", EXCURSIONS).then(setExcursions);
-    loadWithFallback("/api/signatures/", SIGNATURES).then(setSignatures);
-    loadWithFallback("/api/blog-posts/", BLOG_POSTS).then(setBlogPosts);
-
-    // optionnel selon ton backend
-    // loadWithFallback("/api/hero-media/", HERO_MEDIA).then(setHeroMedia);
-    // loadWithFallback("/api/video-cards/", VIDEO_CARDS).then(setVideoCards);
+    loadWithFallback("/api/destinations/", []).then(setDestinations);
+    loadWithFallback("/api/circuits/", []).then(setCircuits);
+    loadWithFallback("/api/excursions/", []).then(setExcursions);
+    loadWithFallback("/api/signatures/", []).then(setSignatures);
+    loadWithFallback("/api/blog-posts/", []).then(setBlogPosts);
+    loadWithFallback("/api/hero-media/", []).then((data) => { if (data[0]) setHeroMedia(data[0]); });
+    loadWithFallback("/api/video-cards/", []).then(setVideoCards);
   }, []);
 
   const featuredDestinations = useMemo(
