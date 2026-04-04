@@ -92,10 +92,7 @@ REST_FRAMEWORK = {
 }
 
 # En production, remplacer par les origines exactes du frontend
-CORS_ALLOW_ALL_ORIGINS = os.environ.get("CORS_ALLOW_ALL", "0") == "1"
-CORS_ALLOWED_ORIGINS = os.environ.get(
-    "CORS_ALLOWED_ORIGINS", "http://localhost:5173,http://localhost:3000"
-).split(",")
+CORS_ALLOWED_ORIGINS = os.environ.get("CORS_ALLOWED_ORIGINS", "").split(",")
 
 # Email (configurer via variables d'environnement en production)
 EMAIL_BACKEND = os.environ.get(
