@@ -17,7 +17,7 @@ const Img = ({ src, alt, className }) => (
     className={className}
     loading="lazy"
     onError={(e) => {
-      e.currentTarget.src = "/media/placeholder.jpg";
+      e.currentTarget.src = "/media/placeholder.webp";
     }}
   />
 );
@@ -68,7 +68,7 @@ export default function Excursions() {
   const openGallery = (exc) => {
     const images = (exc.gallery && exc.gallery.length ? exc.gallery : [exc.cover]).filter(Boolean);
     setLbTitle(exc.title || "Galerie");
-    setLbImages(images.length ? images : ["/media/placeholder.jpg"]);
+    setLbImages(images.length ? images : ["/media/placeholder.webp"]);
     setLbOpen(true);
   };
 

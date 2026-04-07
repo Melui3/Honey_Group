@@ -39,7 +39,7 @@ const Img = ({ src, alt, className }) => (
     className={className}
     loading="lazy"
     onError={(e) => {
-      e.currentTarget.src = "/media/placeholder.jpg";
+      e.currentTarget.src = "/media/placeholder.webp";
     }}
   />
 );
@@ -147,7 +147,7 @@ export default function Home() {
   const [signatures, setSignatures] = useState([]);
   const [blogPosts, setBlogPosts] = useState([]);
 
-  const [heroMedia, setHeroMedia] = useState({ mode: "poster", poster: "/media/hero/hero.jpg" });
+  const [heroMedia, setHeroMedia] = useState({ mode: "poster", poster: "/media/hero/hero.webp" });
   const [videoCards, setVideoCards] = useState([]);
 
   useEffect(() => {
@@ -192,8 +192,8 @@ export default function Home() {
     [videoCards, featuredVideo]
   );
 
-const heroPoster = heroMedia?.poster || "/media/hero/hero.jpg";
-const aboutImg = "/media/about/about-team.png";
+const heroPoster = heroMedia?.poster || "/media/hero/hero.webp";
+const aboutImg = "/media/about/about-team.webp";
 
   const circuitIcons = [RouteIcon, Mountain, Compass, Map];
 
@@ -695,20 +695,10 @@ const aboutImg = "/media/about/about-team.png";
         <div className="pointer-events-none absolute -top-10 -right-10 h-24 w-24 rounded-full bg-[var(--honey-yellow)] opacity-10 transition group-hover:opacity-20" />
 
        <img
-  src={`/media/partners/logo-${String(i + 1).padStart(2, "0")}.png`}
+  src={`/media/partners/logo-${String(i + 1).padStart(2, "0")}.webp`}
   alt={`Partenaire ${i + 1}`}
   className="max-h-12 max-w-[140px] object-contain opacity-85 transition group-hover:opacity-100"
-  onError={(e) => {
-    const base = `/media/partners/logo-${String(i + 1).padStart(2, "0")}`;
-    
-    if (e.currentTarget.src.endsWith(".png")) {
-      e.currentTarget.src = base + ".jpg";
-    } else if (e.currentTarget.src.endsWith(".jpg")) {
-      e.currentTarget.src = base + ".webp";
-    } else {
-      e.currentTarget.style.display = "none";
-    }
-  }}
+  onError={(e) => { e.currentTarget.style.display = "none"; }}
 />
       </div>
     </div>
@@ -1092,7 +1082,7 @@ const aboutImg = "/media/about/about-team.png";
                 <div className="lg:col-span-2 relative overflow-hidden rounded-3xl border border-[var(--honey-border)] bg-slate-950 shadow-2xl">
                   <div className="relative h-full min-h-[420px] overflow-hidden">
                     <Img
-                      src={featuredVideo.thumbnail || "/media/placeholder.jpg"}
+                      src={featuredVideo.thumbnail || "/media/placeholder.webp"}
                       alt={featuredVideo.title}
                       className="absolute inset-0 h-full w-full object-cover"
                     />
@@ -1125,7 +1115,7 @@ const aboutImg = "/media/about/about-team.png";
                     <div className={bar.top(idx % 2 === 0 ? "green" : "orange")} />
                     <div className="relative aspect-[16/9] overflow-hidden">
                       <Img
-                        src={v.thumbnail || "/media/placeholder.jpg"}
+                        src={v.thumbnail || "/media/placeholder.webp"}
                         alt={v.title}
                         className="absolute inset-0 h-full w-full object-cover"
                       />

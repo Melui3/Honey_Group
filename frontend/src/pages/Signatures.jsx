@@ -16,7 +16,7 @@ const Img = ({ src, alt, className }) => (
     alt={alt}
     className={className}
     loading="lazy"
-    onError={(e) => (e.currentTarget.src = "/media/placeholder.jpg")}
+    onError={(e) => (e.currentTarget.src = "/media/placeholder.webp")}
   />
 );
 
@@ -36,7 +36,7 @@ export default function Signatures() {
   const openGallery = (s) => {
     const images = (s.gallery && s.gallery.length ? s.gallery : [s.cover]).filter(Boolean);
     setLbTitle(s.title || "Galerie");
-    setLbImages(images.length ? images : ["/media/placeholder.jpg"]);
+    setLbImages(images.length ? images : ["/media/placeholder.webp"]);
     setLbOpen(true);
   };
 

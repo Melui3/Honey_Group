@@ -22,7 +22,7 @@ const Img = ({ src, alt, className }) => (
     className={className}
     loading="lazy"
     onError={(e) => {
-      e.currentTarget.src = "/media/placeholder.jpg";
+      e.currentTarget.src = "/media/placeholder.webp";
     }}
   />
 );
@@ -69,7 +69,7 @@ const TabButton = ({ active, onClick, children }) => (
 /* -------------------------------------------- */
 
 function Lightbox({ open, title, images = [], initialIndex = 0, onClose }) {
-  const safeImages = images?.length ? images : ["/media/placeholder.jpg"];
+  const safeImages = images?.length ? images : ["/media/placeholder.webp"];
   const [index, setIndex] = useState(initialIndex);
 
   useEffect(() => {
@@ -128,7 +128,7 @@ function Lightbox({ open, title, images = [], initialIndex = 0, onClose }) {
               src={safeImages[index]}
               alt={`${title} ${index + 1}`}
               className="h-[55vh] w-full object-contain"
-              onError={(e) => (e.currentTarget.src = "/media/placeholder.jpg")}
+              onError={(e) => (e.currentTarget.src = "/media/placeholder.webp")}
             />
 
             {safeImages.length > 1 ? (
@@ -174,7 +174,7 @@ function Lightbox({ open, title, images = [], initialIndex = 0, onClose }) {
                     src={src}
                     alt={`thumb ${i + 1}`}
                     className="h-full w-full object-cover"
-                    onError={(e) => (e.currentTarget.src = "/media/placeholder.jpg")}
+                    onError={(e) => (e.currentTarget.src = "/media/placeholder.webp")}
                   />
                 </button>
               ))}
@@ -231,7 +231,7 @@ export default function CircuitsDestinations() {
   const openGallery = (item) => {
     const images = (item.gallery && item.gallery.length ? item.gallery : [item.cover]).filter(Boolean);
     setLbTitle(item.title || item.name || "Galerie");
-    setLbImages(images.length ? images : ["/media/placeholder.jpg"]);
+    setLbImages(images.length ? images : ["/media/placeholder.webp"]);
     setLbIndex(0);
     setLbOpen(true);
   };

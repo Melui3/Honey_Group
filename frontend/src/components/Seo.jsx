@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 
 const SITE_URL = import.meta.env.VITE_SITE_URL || "https://honey-group.mg";
-const DEFAULT_IMAGE = `${SITE_URL}/media/og-image.jpg`;
+const DEFAULT_IMAGE = `${SITE_URL}/media/og-image.webp`;
 
 const JSONLD_ORGANIZATION = {
   "@context": "https://schema.org",
@@ -10,7 +10,7 @@ const JSONLD_ORGANIZATION = {
   description:
     "Agence de tourisme à Madagascar. Circuits, excursions et expériences signatures sur mesure, conçus par des experts locaux.",
   url: SITE_URL,
-  logo: `${SITE_URL}/media/logo.jpg`,
+  logo: `${SITE_URL}/media/logo.webp`,
   email: "honeygroup.mg17@gmail.com",
   telephone: "+261322271493",
   address: {

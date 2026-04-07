@@ -1,7 +1,7 @@
 export const HERO_MEDIA = {
     "id": "hero",
     "mode": "youtube",
-    "poster": "/media/hero/hero-poster.jpg",
+    "poster": "/media/hero/hero-poster.webp",
     "youtubeId": "GTkIlFmJtmg",
 }
 
@@ -11,7 +11,7 @@ export const VIDEO_CARDS = [
         "title": "Vohimana : immersion nature",
         "platform": "YouTube",
         "url": "https://www.youtube.com/watch?v=GTkIlFmJtmg",
-        "thumbnail": "https://img.youtube.com/vi/GTkIlFmJtmg/hqdefault.jpg",
+        "thumbnail": "https://img.youtube.com/vi/GTkIlFmJtmg/hqdefault.webp",
         "featured": true,
         "order": 1,
     },
@@ -20,7 +20,7 @@ export const VIDEO_CARDS = [
         "title": "Morondava : culture & rencontres",
         "platform": "YouTube",
         "url": "https://www.youtube.com/watch?v=Mqa4C9ybkRE",
-        "thumbnail": "https://img.youtube.com/vi/Mqa4C9ybkRE/hqdefault.jpg",
+        "thumbnail": "https://img.youtube.com/vi/Mqa4C9ybkRE/hqdefault.webp",
         "featured": false,
         "order": 2,
     },
@@ -29,7 +29,7 @@ export const VIDEO_CARDS = [
         "title": "Ambatokely : expériences signature",
         "platform": "YouTube",
         "url": "https://www.youtube.com/watch?v=GEv5FMJ4WDw",
-        "thumbnail": "https://img.youtube.com/vi/GEv5FMJ4WDw/hqdefault.jpg",
+        "thumbnail": "https://img.youtube.com/vi/GEv5FMJ4WDw/hqdefault.webp",
         "featured": false,
         "order": 3,
     },

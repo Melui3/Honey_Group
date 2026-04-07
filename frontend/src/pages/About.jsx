@@ -15,7 +15,7 @@ const Img = ({ src, alt, className }) => (
     className={className}
     loading="lazy"
     onError={(e) => {
-      e.currentTarget.src = "/media/placeholder.jpg";
+      e.currentTarget.src = "/media/placeholder.webp";
     }}
   />
 );
@@ -91,7 +91,7 @@ export default function About() {
 
                 <div className="overflow-hidden rounded-3xl border border-[var(--honey-border)] bg-slate-50 shadow-sm">
                   <Img
-                    src="/media/about/about-hero.jpg"
+                    src="/media/about/about-hero.webp"
                     alt="Honey Group — Madagascar"
                     className="h-[420px] w-full object-cover md:h-[520px]"
                   />

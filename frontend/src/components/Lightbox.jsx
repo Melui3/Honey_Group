@@ -13,7 +13,7 @@ const IconChevron = ({ className = "h-5 w-5" }) => (
 );
 
 export default function Lightbox({ open, title, images = [], initialIndex = 0, onClose }) {
-  const safeImages = images?.length ? images : ["/media/placeholder.jpg"];
+  const safeImages = images?.length ? images : ["/media/placeholder.webp"];
   const [index, setIndex] = useState(initialIndex);
 
   useEffect(() => {
@@ -65,7 +65,7 @@ export default function Lightbox({ open, title, images = [], initialIndex = 0, o
               src={safeImages[index]}
               alt={`${title} ${index + 1}`}
               className="h-[55vh] w-full object-contain"
-              onError={(e) => (e.currentTarget.src = "/media/placeholder.jpg")}
+              onError={(e) => (e.currentTarget.src = "/media/placeholder.webp")}
             />
 
             {safeImages.length > 1 ? (
@@ -111,7 +111,7 @@ export default function Lightbox({ open, title, images = [], initialIndex = 0, o
                     src={src}
                     alt={`thumb ${i + 1}`}
                     className="h-full w-full object-cover"
-                    onError={(e) => (e.currentTarget.src = "/media/placeholder.jpg")}
+                    onError={(e) => (e.currentTarget.src = "/media/placeholder.webp")}
                   />
                 </button>
               ))}

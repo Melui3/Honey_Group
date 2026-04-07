@@ -40,7 +40,7 @@ export default function Header() {
         <a href="/" className="flex items-center gap-3 group">
           <div className="overflow-hidden rounded-2xl shadow-sm transition group-hover:scale-105 group-hover:shadow-md">
             <img
-              src="/media/logo.jpg"
+              src="/media/logo.webp"
               alt="Honey Group"
               className="h-11 w-11 object-cover"
             />

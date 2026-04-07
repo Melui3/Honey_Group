@@ -20,7 +20,7 @@ const Img = ({ src, alt, className }) => (
     alt={alt}
     className={className}
     loading="lazy"
-    onError={(e) => (e.currentTarget.src = "/media/placeholder.jpg")}
+    onError={(e) => (e.currentTarget.src = "/media/placeholder.webp")}
   />
 );
 

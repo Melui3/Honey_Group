@@ -4,7 +4,7 @@ from content.models import HeroMedia, VideoCard
 HERO_MEDIA = {
     "id": "hero",
     "mode": "youtube",
-    "poster": "/media/hero/hero-poster.jpg",
+    "poster": "/media/hero/hero-poster.webp",
     "youtubeId": "GTkIlFmJtmg",
 }
 
@@ -14,7 +14,7 @@ VIDEO_CARDS = [
         "title": "Vohimana : immersion nature",
         "platform": "YouTube",
         "url": "https://www.youtube.com/watch?v=GTkIlFmJtmg",
-        "thumbnail": "https://img.youtube.com/vi/GTkIlFmJtmg/hqdefault.jpg",
+        "thumbnail": "https://img.youtube.com/vi/GTkIlFmJtmg/hqdefault.webp",
         "featured": True,
         "order": 1,
     },
@@ -23,7 +23,7 @@ VIDEO_CARDS = [
         "title": "Morondava : culture & rencontres",
         "platform": "YouTube",
         "url": "https://www.youtube.com/watch?v=Mqa4C9ybkRE",
-        "thumbnail": "https://img.youtube.com/vi/Mqa4C9ybkRE/hqdefault.jpg",
+        "thumbnail": "https://img.youtube.com/vi/Mqa4C9ybkRE/hqdefault.webp",
         "featured": False,
         "order": 2,
     },
@@ -32,7 +32,7 @@ VIDEO_CARDS = [
         "title": "Ambatokely : expériences signature",
         "platform": "YouTube",
         "url": "https://www.youtube.com/watch?v=GEv5FMJ4WDw",
-        "thumbnail": "https://img.youtube.com/vi/GEv5FMJ4WDw/hqdefault.jpg",
+        "thumbnail": "https://img.youtube.com/vi/GEv5FMJ4WDw/hqdefault.webp",
         "featured": False,
         "order": 3,
     },
