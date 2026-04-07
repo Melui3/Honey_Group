@@ -276,10 +276,10 @@ export default function Contact() {
                 text="Réponse rapide et claire."
                 action={
                   <a
-                    href="mailto:honeygroup.mg17@gmail.com"
+                    href="mailto:contact@honeygroupmadatourism.com"
                     className={[btn.outline("blue", "md", "pill"), "inline-flex items-center gap-2"].join(" ")}
                   >
-                    honeygroup.mg17@gmail.com <ArrowRight className="h-5 w-5" />
+                    contact@honeygroupmadatourism.com <ArrowRight className="h-5 w-5" />
                   </a>
                 }
               />

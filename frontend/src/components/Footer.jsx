@@ -184,9 +184,9 @@ export default function Footer() {
               Email :{" "}
               <a
                 className="font-black text-slate-900 hover:underline"
-                href="mailto:honeygroup.mg17@gmail.com"
+                href="mailto:contact@honeygroupmadatourism.com"
               >
-                honeygroup.mg17@gmail.com
+                contact@honeygroupmadatourism.com
               </a>
             </div>
 
