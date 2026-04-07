@@ -105,7 +105,7 @@ DATA = [
         "durationLabel": "À définir",
         "routeLabel": "Antananarivo → Makay",
         "highlights": ["Aventure", "Paysages", "Expédition"],
-        "cover": "/media/circuits/cover-circuit-makay.jfif",
+        "cover": "/media/circuits/cover-circuit-makay.webp",
         "featured": False,
         "notes": "Circuit cité dans le Livre (Sud : Tuléar, Makay).",
         "gallery": [

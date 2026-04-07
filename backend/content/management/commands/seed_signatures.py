@@ -14,7 +14,7 @@ DATA = [
             "Pause gourmande (options locales)",
             "Encadrement professionnel",
         ],
-        "cover": "/media/signatures/cover-tana-by-night.jfif",
+        "cover": "/media/signatures/cover-tana-by-night.webp",
         "gallery": [
             "/media/signatures/gallery-tana-by-night-1.webp",
             "/media/signatures/gallery-tana-by-night-2.webp",

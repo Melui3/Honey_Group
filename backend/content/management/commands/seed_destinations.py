@@ -70,12 +70,12 @@ DATA = [
         "zone": "Nord",
         "teaser": "Baies spectaculaires, eaux turquoise et reliefs puissants : Diego-Suarez révèle un Nord sauvage et magnétique.",
         "tags": ["Baies", "Aventure", "Paysages"],
-        "cover": "/media/destinations/cover-diego-suarez.jfif",
+        "cover": "/media/destinations/cover-diego-suarez.webp",
         "featured": False,
         "gallery": [
             "/media/destinations/gallery-diego-suarez-1.webp",
             "/media/destinations/gallery-diego-suarez-2.webp",
-            "/media/destinations/gallery-diego-suarez-3.jfif",
+            "/media/destinations/gallery-diego-suarez-3.webp",
         ],
     },
     {
@@ -134,7 +134,7 @@ DATA = [
         "featured": False,
         "gallery": [
             "/media/destinations/gallery-vohimana-1.webp",
-            "/media/destinations/gallery-vohimana-2.jfif",
+            "/media/destinations/gallery-vohimana-2.webp",
             "/media/destinations/gallery-vohimana-3.webp",
         ],
     },
