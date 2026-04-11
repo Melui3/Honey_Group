@@ -9,6 +9,9 @@ from .serializers import (
     BlogPostSerializer, CircuitSerializer, DestinationSerializer, ExcursionSerializer,
     SignatureSerializer, VideoCardSerializer, HeroMediaSerializer
 )
+import resend
+
+resend.api_key = os.environ.get("RESEND_API_KEY")
 
 class PublicReadOnly(viewsets.ReadOnlyModelViewSet):
     permission_classes = [AllowAny]
@@ -58,6 +61,9 @@ class ContactView(APIView):
     }
 
     def post(self, request):
+        import resend
+        import os
+
         data = request.data
 
         for field in self.REQUIRED_FIELDS:
@@ -85,13 +91,13 @@ class ContactView(APIView):
         contact_email = getattr(settings, "CONTACT_EMAIL", "honeygroup.mg17@gmail.com")
 
         try:
-            send_mail(
-                subject=f"[Devis] {data.get('name')} — {travel_label}",
-                message=body,
-                from_email=settings.DEFAULT_FROM_EMAIL,
-                recipient_list=[contact_email],
-                fail_silently=False,
-            )
+            resend.api_key = os.environ.get("RESEND_API_KEY")
+            resend.Emails.send({
+                "from": "Honey Group <onboarding@resend.dev>",
+                "to": [contact_email],
+                "subject": f"[Devis] {data.get('name')} — {travel_label}",
+                "text": body,
+            })
         except Exception as exc:
             return Response(
                 {"detail": "Erreur lors de l'envoi. Réessayez plus tard."},
