@@ -1,5 +1,4 @@
 from django.conf import settings
-from django.core.mail import send_mail
 from rest_framework import viewsets, status
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -60,9 +59,6 @@ class ContactView(APIView):
     }
 
     def post(self, request):
-        import resend
-        import os
-
         data = request.data
 
         for field in self.REQUIRED_FIELDS:
@@ -92,14 +88,14 @@ class ContactView(APIView):
         try:
             resend.api_key = os.environ.get("RESEND_API_KEY")
             resend.Emails.send({
-                "from": "Honey Group <onboarding@resend.dev>",
+                "from": "onboarding@resend.dev",
                 "to": [contact_email],
                 "subject": f"[Devis] {data.get('name')} — {travel_label}",
                 "text": body,
             })
         except Exception as exc:
             return Response(
-                {"detail": "Erreur lors de l'envoi. Réessayez plus tard."},
+                {"detail": str(exc)},
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR,
             )
 
