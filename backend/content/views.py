@@ -10,8 +10,7 @@ from .serializers import (
     SignatureSerializer, VideoCardSerializer, HeroMediaSerializer
 )
 import resend
-
-resend.api_key = os.environ.get("RESEND_API_KEY")
+import os
 
 class PublicReadOnly(viewsets.ReadOnlyModelViewSet):
     permission_classes = [AllowAny]
