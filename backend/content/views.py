@@ -9,6 +9,7 @@ from .serializers import (
     SignatureSerializer, VideoCardSerializer, HeroMediaSerializer
 )
 import resend
+from resend import Emails
 import os
 
 class PublicReadOnly(viewsets.ReadOnlyModelViewSet):
@@ -87,12 +88,13 @@ class ContactView(APIView):
 
         try:
             resend.api_key = os.environ.get("RESEND_API_KEY")
-            resend.Emails.send({
+            params = {
                 "from": "onboarding@resend.dev",
                 "to": [contact_email],
                 "subject": f"[Devis] {data.get('name')} — {travel_label}",
                 "text": body,
-            })
+            }
+            Emails.send(params)
         except Exception as exc:
             return Response(
                 {"detail": str(exc)},
