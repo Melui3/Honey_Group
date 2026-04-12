@@ -89,7 +89,7 @@ class ContactView(APIView):
         try:
             resend.api_key = os.environ.get("RESEND_API_KEY")
             params = {
-                "from": "onboarding@resend.dev",
+                "from": "Honey Group <contact@honeygroupmadatourism.com>",
                 "to": [contact_email],
                 "subject": f"[Devis] {data.get('name')} — {travel_label}",
                 "text": body,
